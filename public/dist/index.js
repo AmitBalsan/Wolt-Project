@@ -1,0 +1,2 @@
+function handleSignUp() { }
+function handleLogin() { }
