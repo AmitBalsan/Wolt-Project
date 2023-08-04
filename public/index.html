@@ -3,20 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="./dist/index.js"></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./dist/index.js" defer></script>
     <title>DAI Order Now</title>
   </head>
   <body>
-    <div class="login-panel"></div>
     <div class="header">
       <img src="./assets/images/DAI-logo.png" alt="DAI Logo" />
       <div class="header_btn">
-        <button class="header_btn--signup" onclick="handleSignUp()">
+        <button class="header_btn--signup" onclick="openSignUp()">
           SIGN-UP
         </button>
-        <button class="header_btn--login" onclick="handleLogin()">LOGIN</button>
+        <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
       </div>
+    </div>
+    <div class="signUp-panel" style="display: none">
+      <form id="sign-up" onsubmit="handleSignUp(event)">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" required /><br /><br />
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" required /><br /><br />
+        <label for="address">Address</label>
+        <input type="text" id="address" required /><br /><br />
+        <label>
+          <input
+            type="radio"
+            name="kindOfPerson"
+            value="delivery-person"
+            onclick="toggleIdInput(true)"
+          />Delivery-Person </label
+        ><br />
+        <label>
+          <input
+            type="radio"
+            name="kindOfPerson"
+            value="seller"
+            onclick="toggleIdInput(false)"
+          />Seller </label
+        ><br />
+        <label>
+          <input
+            type="radio"
+            name="kindOfPerson"
+            value="client"
+            onclick="toggleIdInput(false)"
+          />Client </label
+        ><br /><br />
+        <div id="idContainer" style="display: none">
+          <label for="id" id="idLabel">Id</label>
+          <input type="text" id="id" /><br /><br />
+        </div>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" required /><br /><br />
+
+        <input type="submit" value="Sign Up" />
+      </form>
     </div>
   </body>
 </html>

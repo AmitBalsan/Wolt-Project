@@ -1,15 +1,15 @@
-function handleSignUp() {
-  const loginPopup = document.querySelector(".login-panel") as HTMLDivElement;
-  console.log(loginPopup);
-
-  loginPopup.innerHTML = `<div>
-      <form>
-      <label>First Name</label>
-      <input type="text" name="first-name">
-
-      </form>
-      </div>
-      `;
+function openSignUp() {
+  const signUpPopup = document.querySelector(".signUp-panel") as HTMLDivElement;
+  console.log(signUpPopup);
+  signUpPopup.style.display = "flex";
 }
 
-function handleLogin() {}
+function toggleIdInput(show: boolean) {
+  const idContainer = document.querySelector("#idContainer") as HTMLDivElement;
+
+  if (show === true) {
+    idContainer.style.display = "block";
+  } else {
+    idContainer.style.display = "none";
+  }
+}

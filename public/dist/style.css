@@ -48,3 +48,7 @@ button:hover {
   background: none;
   color: #6bb2e4;
 }
+
+.signUp-panel {
+  justify-content: center;
+}

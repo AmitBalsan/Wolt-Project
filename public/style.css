@@ -47,4 +47,8 @@ button:hover {
 .header_btn--login:hover {
   background: none;
   color: rgb(107, 178, 228);
+}
+
+.signUp-panel {
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */
