@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/style.css" />
     <script src="./dist/index.js" defer></script>
+    <script src="./dist/helper.js" defer></script>
     <title>DAI Order Now</title>
   </head>
   <body>
-    <div class="header">
+    <section class="header">
       <img src="./assets/images/DAI-logo.png" alt="DAI Logo" />
       <div class="header_btn">
         <button class="header_btn--signup" onclick="openSignUp()">
@@ -16,48 +17,61 @@
         </button>
         <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
       </div>
-    </div>
-    <div class="signUp-panel" style="display: none">
-      <form id="sign-up" onsubmit="handleSignUp(event)">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" required /><br /><br />
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" required /><br /><br />
-        <label for="address">Address</label>
-        <input type="text" id="address" required /><br /><br />
-        <label>
-          <input
-            type="radio"
-            name="kindOfPerson"
-            value="delivery-person"
-            onclick="toggleIdInput(true)"
-          />Delivery-Person </label
-        ><br />
-        <label>
-          <input
-            type="radio"
-            name="kindOfPerson"
-            value="seller"
-            onclick="toggleIdInput(false)"
-          />Seller </label
-        ><br />
-        <label>
-          <input
-            type="radio"
-            name="kindOfPerson"
-            value="client"
-            onclick="toggleIdInput(false)"
-          />Client </label
-        ><br /><br />
-        <div id="idContainer" style="display: none">
-          <label for="id" id="idLabel">Id</label>
-          <input type="text" id="id" /><br /><br />
+    </section>
+    <section class="top-page">
+      <div class="top-page--left">
+        <div class="top-page--left-content">
+          <p>Order Now</p>
+          <p>And Your Life</p>
+          <p>Will Be Much Better</p>
         </div>
-        <label for="phone">Phone</label>
-        <input type="text" id="phone" required /><br /><br />
+        <div class="top-page-search">
+          <img
+            class="top-page-search--icon"
+            src="./assets/images/location.png"
+            alt="Location icon"
+          />
+          <input
+            class="top-page-search--input"
+            type="text"
+            placeholder="Search Location"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="about-us">
+      <div class="about-us_container">
+        <div class="about-us_container-card">
+          <div class="about-us_container-card--left">
+            <h2>About Us</h2>
+            <p>We find for you the BEST restaurant in the area</p>
+          </div>
+          <div class="about-us_container-card--rignt"></div>
+        </div>
+      </div>
+    </section>
+    <section class="did-you">
+      <div class="did-you-container">
+        <h2>Did You Know...</h2>
+        <p>
+          Ordering through DAI not only makes your life better: the order helps
+          thousands of business owners and couriers from the area to earn a
+          living and earn from what they do :)
+        </p>
+      </div>
+    </section>
 
-        <input type="submit" value="Sign Up" />
-      </form>
-    </div>
+    <section class="letus">
+      <div class="letus-container">
+        <h2>Let's Us Surprise You</h2>
+        <div class="letus-container-form">
+          <form onsubmit="handleSubscribe(event)">
+            <input name="email" type="email" placeholder="Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="signUp-panel"></div>
   </body>
 </html>

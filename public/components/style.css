@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.signup {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.4784313725);
+  display: flex;
+  justify-content: center;
+}
+.signup-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup-container--exit {
+  position: absolute;
+  right: 0;
+  top: 335px;
+}
+.signup-container--form form {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
