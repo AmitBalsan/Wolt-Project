@@ -23,7 +23,39 @@
             <input type="text" name="password" />
             <label for="varifyPassword">Varify Password</label>
             <input type="text" name="varifyPassword" />
-            <div class="signup-container--form-selection"></div>
+            <div class="signup-container--form-selection">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  class="kind"
+                  name="kindOfPerson"
+                  value="delivery-person"
+                  onclick="toggleIdInput(true)"
+                />Delivery-Person </label
+              ><br />
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  class="kind"
+                  name="kindOfPerson"
+                  value="seller"
+                  onclick="toggleIdInput(false)"
+                />Seller </label
+              ><br />
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  class="kind"
+                  name="kindOfPerson"
+                  value="client"
+                  onclick="toggleIdInput(false)"
+                />Client
+              </label>
+              <div id="idContainer" style="display: none">
+                <label for="id" id="idLabel">Id</label>
+                <input type="text" id="id" />
+              </div>
+            </div>
           </form>
         </div>
         <div class="signup-container--btn">

@@ -27,4 +27,9 @@
 .signup-container--form form {
   display: flex;
   flex-direction: column;
+}
+.signup-container--form-selection {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
