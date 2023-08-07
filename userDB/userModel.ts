@@ -7,5 +7,8 @@ const UserSchema = new Schema({
   email: String,
   password: String,
   userType: Number,
-  licenseID: String,
 });
+
+const UserModal = mongoose.model("User", UserSchema);
+
+export default UserModal;

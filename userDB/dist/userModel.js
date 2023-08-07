@@ -7,6 +7,7 @@ var UserSchema = new mongoose_1.Schema({
     phone: String,
     email: String,
     password: String,
-    userType: Number,
-    licenseID: String
+    userType: Number
 });
+var UserModal = mongoose_1["default"].model("User", UserSchema);
+exports["default"] = UserModal;

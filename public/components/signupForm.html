@@ -9,7 +9,10 @@
   <body>
     <div class="signup">
       <div class="signup-container">
-        <div class="signup-container--exit">X</div>
+        <div class="signup-container--exit">
+          <p class="signup-container--exit-right"></p>
+          <p class="signup-container--exit-left"></p>
+        </div>
         <div class="signup-container--header"><h2>SIGN-UP</h2></div>
         <div class="signup-container--form">
           <form>
@@ -19,42 +22,19 @@
             <input type="text" name="lastName" />
             <label for="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" />
+            <label for="email">Email</label>
+            <input type="text" name="email" />
             <label for="password">Password</label>
             <input type="text" name="password" />
-            <label for="varifyPassword">Varify Password</label>
-            <input type="text" name="varifyPassword" />
+            <label for="verifyPassword">Verify Password</label>
+            <input type="text" name="verifyPassword" />
             <div class="signup-container--form-selection">
-              <label class="radio-label">
-                <input
-                  type="radio"
-                  class="kind"
-                  name="kindOfPerson"
-                  value="delivery-person"
-                  onclick="toggleIdInput(true)"
-                />Delivery-Person </label
-              ><br />
-              <label class="radio-label">
-                <input
-                  type="radio"
-                  class="kind"
-                  name="kindOfPerson"
-                  value="seller"
-                  onclick="toggleIdInput(false)"
-                />Seller </label
-              ><br />
-              <label class="radio-label">
-                <input
-                  type="radio"
-                  class="kind"
-                  name="kindOfPerson"
-                  value="client"
-                  onclick="toggleIdInput(false)"
-                />Client
-              </label>
-              <div id="idContainer" style="display: none">
-                <label for="id" id="idLabel">Id</label>
-                <input type="text" id="id" />
-              </div>
+              <input type="radio" name="radio" id="one" checked />
+              <label for="one">Client</label>
+              <input type="radio" name="radio" id="two" />
+              <label for="two">Delivery</label>
+              <input type="radio" name="radio" id="three" />
+              <label for="three">Seller</label>
             </div>
           </form>
         </div>

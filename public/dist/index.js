@@ -1,15 +1,60 @@
 function openSignUp() {
-    var signUpPopup = document.querySelector(".signUp-panel");
     signUpPopup.innerHTML = signUpForm;
+    signUpPopup.style.position = "fixed";
 }
-function toggleIdInput(show) {
-    var idContainer = document.querySelector("#idContainer");
-    if (show === true) {
-        idContainer.style.display = "block";
-    }
-    else {
-        idContainer.style.display = "none";
-    }
+function openLogin() {
+    signUpPopup.innerHTML = LoginForm;
+    signUpPopup.style.position = "fixed";
+}
+function userLogin(event) {
+    event.preventDefault();
+    var userLogin = {
+        email: event.target.elements.email.value,
+        password: event.target.elements.password.value
+    };
+    fetch("/api/user-login", {
+        method: "PATCH",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ userLogin: userLogin })
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        console.log(data);
+    });
+}
+function createUser(event) {
+    event.preventDefault();
+    var elements = event.target.elements;
+    var user = {
+        firstName: elements.firstName.value,
+        lastName: elements.lastName.value,
+        phoneNumber: elements.phoneNumber.value,
+        email: elements.email.value,
+        password: elements.password.value,
+        userType: elements.radio.value
+    };
+    fetch("/api/signup-user", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ user: user })
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        console.log(data);
+    })["catch"](function (error) {
+        console.log(error);
+    });
+}
+function closeModal() {
+    var signUpPopup = document.querySelector(".signUp-panel");
+    signUpPopup.innerHTML = "";
+    signUpPopup.style.position = "unset";
 }
 function handleSubscribe(event) {
     event.preventDefault();

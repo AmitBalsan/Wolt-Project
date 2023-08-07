@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import subscribeRoute from "./subscribe/subscribeRoute";
+import userRoute from "./userDB/userRoute";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static("./public"));
 
 app.use("/api", subscribeRoute);
+app.use("/api", userRoute);
 app.listen(port, () => {
   console.log("server listen on port ", port);
 });
