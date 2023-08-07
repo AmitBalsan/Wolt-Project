@@ -1,0 +1,25 @@
+.new_restaurant_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.new_restaurant_container--btn {
+  position: relative;
+  cursor: pointer;
+  margin-top: 25px;
+}
+.new_restaurant_container--btn button {
+  height: 60px;
+  width: 60px;
+  border-radius: 42px;
+  background-color: #ffe141;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.new_restaurant_container--btn p {
+  font-size: 4rem;
+  position: absolute;
+  top: -13px;
+  left: 10px;
+}

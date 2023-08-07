@@ -57,3 +57,45 @@ const LoginForm = `<div class="login">
   </div>
 </div>
 </div>`;
+
+const header = `<section class="header">
+<img src="./assets/images/DAI-logo.png" alt="DAI Logo" />
+<div>
+<input type="text"/> 
+</div>
+<div class="header_btn">
+  <button class="header_btn--signup" onclick="openSignUp()">
+    SIGN-UP
+  </button>
+  <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
+</div>
+</section>`;
+
+const restaurantCard = `<selection class="restaurant_card">
+<div class="restaurant_card_container">
+  <div class="restaurant_card_container--img">
+    <img src="../assets/images/Marinated-Burgers-5.jpg" alt="" />
+  </div>
+  <div class="restaurant_card_container--content">
+    <div class="restaurant_card_container--content-description">
+      <h3>test</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum</p>
+    </div>
+    <div class="restaurant_card_container--content-time">
+      <p>40 - 50</p>
+      <p>min</p>
+    </div>
+  </div>
+</div>
+</selection>`;
+
+const newRestaurantBtn = `<selection class="new_restaurant">
+<div class="new_restaurant_container">
+  <div class="new_restaurant_container--headline">
+    <h2>Add Restaurant</h2>
+  </div>
+  <div onclick="" class="new_restaurant_container--btn">
+    <button><p>+</p></button>
+  </div>
+</div>
+</selection>`;

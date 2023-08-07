@@ -1,7 +1,7 @@
 import jwt from "jwt-simple";
 import UserModal from "./userModel";
 
-const secret: string = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
+const secret: string | undefined = process.env.JWT_SECRET;
 
 export const loginUser = async (req: any, res: any) => {
   try {

@@ -39,7 +39,7 @@ exports.__esModule = true;
 exports.createUser = exports.loginUser = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var userModel_1 = require("./userModel");
-var secret = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
+var secret = process.env.JWT_SECRET;
 exports.loginUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, email, password, userDB, token, error_1;
     return __generator(this, function (_b) {

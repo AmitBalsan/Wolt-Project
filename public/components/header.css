@@ -465,4 +465,43 @@ button:hover {
   height: 55px;
   border-radius: 30px;
   background: #8774ff;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.create_restaurant-container-info--details {
+  display: flex;
+  flex-direction: row;
+  height: 165px;
+  width: 700px;
+  justify-content: space-between;
+}
+.create_restaurant-container-info--details-input {
+  display: flex;
+  flex-direction: column;
+}
+.create_restaurant-container-info--details-input input {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #9e9e9e;
+  padding: 0 15px;
+  width: 250px;
+  font-size: 1.25rem;
+}
+.create_restaurant-container-info--checkbox {
+  display: flex;
+  width: 100px;
+  height: 60px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.create_restaurant-container-info--checkbox-selector {
+  position: relative;
+}
+.create_restaurant-container-info--checkbox-selector input {
+  position: absolute;
+  top: 4px;
+}
+.create_restaurant-container-info--checkbox-selector label {
+  position: absolute;
+  left: 22px;
+}/*# sourceMappingURL=header.css.map */
