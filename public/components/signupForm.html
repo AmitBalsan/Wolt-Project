@@ -13,80 +13,32 @@
           <h3>New Restaurant</h3>
         </div>
         <div class="create_restaurant-container-info">
-          <div class="create_restaurant-container-info--details">
-            <div class="create_restaurant-container-info--details-input">
-              <label>Name</label>
-              <input type="text" name="name" />
-              <label>Cover Image</label>
-              <input type="text" name="image" />
-            </div>
-            <div class="create_restaurant-container-info--details-input">
-              <label>Phone Number</label>
-              <input type="text" name="phone" />
-              <label>BN Number</label>
-              <input type="text" name="bn" />
-            </div>
-
-            <div class="create_restaurant-container-info--checkbox">
-              <div class="create_restaurant-container-info--checkbox-selector">
-                <input type="checkbox" name="kosher" value="Kosher" /><label
-                  for="kosher"
-                  >kosher</label
-                >
+          <form onsubmit="createRestaurant(event)">
+            <div class="create_restaurant-container-info--details">
+              <div class="create_restaurant-container-info--details-input">
+                <label>Name</label>
+                <input type="text" name="name" />
+                <label>Cover Image</label>
+                <input type="text" name="image" />
               </div>
-              <div class="create_restaurant-container-info--checkbox-selector">
-                <input
-                  type="checkbox"
-                  name="accessibility"
-                  value="Accessibility"
-                /><label for="accessibility">Accessibility</label>
+              <div class="create_restaurant-container-info--details-input">
+                <label>Phone Number</label>
+                <input type="text" name="phone" />
+                <label>BN Number</label>
+                <input type="text" name="bn" />
               </div>
-              <div class="create_restaurant-container-info--checkbox-selector">
-                <input type="checkbox" name="parking" value="Parking" />
-                <label for="parking">Parking</label>
+              <div class="create_restaurant-container-info--details-input">
+                <label>City</label>
+                <input type="text" name="city" />
+                <label>Street</label>
+                <input type="street" name="street" />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="create_restaurant-container-address">
-          <label>City</label>
-          <input type="text" name="city" />
-          <label>Street</label>
-          <input type="text" name="street" />
-          <label>Entrance</label>
-          <input type="text" name="Entrance" />
-          <label>House number</label>
-          <input type="text" name="House number" />
-        </div>
-        <h3>Address</h3>
-        <div class="create_restaurant-container-opening">
-          <div class="create_restaurant-container-opening--time">
-            <label>Start</label>
-            <input type="text" name="start" />
-            <label>End</label>
-            <input type="text" name="end" />
-          </div>
-          <h3>Opening Time</h3>
-          <div class="create_restaurant-container-opening--dayes">
-            <input type="checkbox" name="sunday" value="sunday" />
-            <label for="parking">Sunday</label>
-            <input type="checkbox" name="monday" value="monday" />
-            <label for="parking">Monday</label>
-            <input type="checkbox" name="tuesday" value="tuesday" />
-            <label for="parking">Tuesday</label>
-            <input type="checkbox" name="wednesday" value="wednesday" />
-            <label for="parking">Wednesday</label>
-            <input type="checkbox" name="thursday" value="thursday" />
-            <label for="parking">Thursday</label>
-            <input type="checkbox" name="friday" value="friday" />
-            <label for="parking">Friday</label>
-            <input type="checkbox" name="saturday" value="saturday" />
-            <label for="parking">Saturday</label>
-          </div>
-          <div class="create_restaurant-container-btn">
-            <button>Cancel</button>
-            <button>Next</button>
-          </div>
+            <div class="create_restaurant-container-btn">
+              <button id="cancel">Cancel</button>
+              <button type="submit" id="Next">Next</button>
+            </div>
+          </form>
         </div>
       </div>
     </selection>

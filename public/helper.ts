@@ -99,3 +99,39 @@ const newRestaurantBtn = `<selection class="new_restaurant">
   </div>
 </div>
 </selection>`;
+
+const newRestaurantForm = `<selection class="create_restaurant">
+<div class="create_restaurant-container">
+  <div class="create_restaurant-container-headline">
+    <h3>New Restaurant</h3>
+  </div>
+  <div class="create_restaurant-container-info">
+    <form onsubmit="createRestaurant(event)">
+      <div class="create_restaurant-container-info--details">
+        <div class="create_restaurant-container-info--details-input">
+          <label>Name</label>
+          <input type="text" name="name" />
+          <label>Cover Image</label>
+          <input type="text" name="image" />
+        </div>
+        <div class="create_restaurant-container-info--details-input">
+          <label>Phone Number</label>
+          <input type="text" name="phone" />
+          <label>BN Number</label>
+          <input type="text" name="bn" />
+        </div>
+        <div class="create_restaurant-container-info--details-input">
+          <label>City</label>
+          <input type="text" name="city" />
+          <label>Street</label>
+          <input type="street" name="street" />
+        </div>
+      </div>
+      <div class="create_restaurant-container-btn">
+        <button id="cancel">Cancel</button>
+        <button type="submit" id="Next">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+</selection>`;
