@@ -32,5 +32,13 @@
   background-color: white;
 }
 .restaurant_details_container_dish {
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid #cdcdcd;
+}
+
+.dish-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

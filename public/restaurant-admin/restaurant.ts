@@ -11,17 +11,7 @@ function closeModal() {
 }
 
 function getRestaurant() {
-  if (loginUser) {
-    const userN: string = loginUser.firstName.charAt(0);
-    const userL: string = loginUser.lastName.charAt(0);
-    const userName = `${userN}${userL}`;
-    headerAvatar.innerHTML = userAvatar;
-    const avatarName = document.querySelector(
-      ".avatar__initials"
-    ) as HTMLDivElement;
-
-    avatarName.innerHTML = userName;
-  }
+  createAvatar();
   fetch("/api/get-restaurant")
     .then((res) => res.json())
     .then((data) => {

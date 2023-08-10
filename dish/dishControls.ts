@@ -25,8 +25,32 @@ export const createDish = async (req: any, res: any) => {
       resID,
       userID: userId,
     });
+    const dishList = await DishModal.find({ resID: resID });
+    res.status(200).send({ dishList });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
+};
 
-    res.status(200).send({ dishDB });
+export const getDish = async (req: any, res: any) => {
+  try {
+    const { resID } = req.body;
+    if (!resID) throw new Error("There is no dish");
+    const dishList = await DishModal.find({ resID: resID });
+    if (!dishList) throw new Error("There is no dish in the DB");
+    res.status(200).send(dishList);
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const deleteDish = async (req: any, res: any) => {
+  try {
+    const { id, resID } = req.body;
+    if (!id) throw new Error("There is no DishID ");
+    const dish = await DishModal.findByIdAndRemove(id);
+    const dishList = await DishModal.find({ resID: resID });
+    res.status(200).send({ message: "ok", dishList });
   } catch (error: any) {
     res.status(500).send({ error: error.message });
   }

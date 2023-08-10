@@ -211,3 +211,33 @@ const createDishModal = ` <selection class="create_dish">
   </div>
 </div>
 </selection>`;
+
+const dishModal = `<selection class="dish">
+<div class="dish_container">
+  <div class="dish_container-cover"></div>
+  <div class="dish_container-headline">
+    <h3>dish</h3>
+    <h4>₪54</h4>
+  </div>
+  <div class="dish_container-notes">
+    <p>this is a text</p>
+  </div>
+  <div class="dish_container-addcart">
+    <button>Add to Cart</button>
+  </div>
+</div>
+</selection>`;
+
+function createAvatar() {
+  if (loginUser) {
+    const userN: string = loginUser.firstName.charAt(0).toUpperCase();
+    const userL: string = loginUser.lastName.charAt(0).toUpperCase();
+    const userName = `${userN}${userL}`;
+    headerAvatar.innerHTML = userAvatar;
+    const avatarName = document.querySelector(
+      ".avatar__initials"
+    ) as HTMLDivElement;
+
+    avatarName.innerHTML = userName;
+  }
+}

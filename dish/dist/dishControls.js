@@ -36,16 +36,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createDish = void 0;
+exports.deleteDish = exports.getDish = exports.createDish = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var dishModel_1 = require("./dishModel");
 var secret = process.env.JWT_SECRET;
 exports.createDish = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, price, image, notes, resID, user, decoded, userId, dishDB, error_1;
+    var _a, name, price, image, notes, resID, user, decoded, userId, dishDB, dishList, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 3, , 4]);
                 _a = req.body.dish, name = _a.name, price = _a.price, image = _a.image, notes = _a.notes, resID = _a.resID;
                 console.log(req.body);
                 if (!name)
@@ -71,13 +71,65 @@ exports.createDish = function (req, res) { return __awaiter(void 0, void 0, void
                     })];
             case 1:
                 dishDB = _b.sent();
-                res.status(200).send({ dishDB: dishDB });
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, dishModel_1["default"].find({ resID: resID })];
             case 2:
+                dishList = _b.sent();
+                res.status(200).send({ dishList: dishList });
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _b.sent();
                 res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getDish = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var resID, dishList, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                resID = req.body.resID;
+                if (!resID)
+                    throw new Error("There is no dish");
+                return [4 /*yield*/, dishModel_1["default"].find({ resID: resID })];
+            case 1:
+                dishList = _a.sent();
+                if (!dishList)
+                    throw new Error("There is no dish in the DB");
+                res.status(200).send(dishList);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                res.status(500).send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteDish = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, id, resID, dish, dishList, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, id = _a.id, resID = _a.resID;
+                if (!id)
+                    throw new Error("There is no DishID ");
+                return [4 /*yield*/, dishModel_1["default"].findByIdAndRemove(id)];
+            case 1:
+                dish = _b.sent();
+                return [4 /*yield*/, dishModel_1["default"].find({ resID: resID })];
+            case 2:
+                dishList = _b.sent();
+                res.status(200).send({ message: "ok", dishList: dishList });
+                return [3 /*break*/, 4];
+            case 3:
+                error_3 = _b.sent();
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

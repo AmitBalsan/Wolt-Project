@@ -451,6 +451,85 @@
   border-top: 1px solid #cdcdcd;
 }
 
+.create_dish {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.create_dish_container {
+  max-width: 380px;
+  box-shadow: 0px 7px 9px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background-color: white;
+}
+.create_dish_container--cover {
+  width: 380px;
+  height: 200px;
+  background-image: url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg");
+  border-radius: 10px 10px 0 0;
+  background-size: cover;
+}
+.create_dish_container--form-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.create_dish_container--form-btn--create {
+  background: #a5f4ff;
+}
+.create_dish_container--form-btn--canel {
+  background: #ffa7a7;
+}
+.create_dish_container--form-btn button {
+  height: 40px;
+  width: 100px;
+  border: none;
+  font-weight: 800;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.create_dish_container--form form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 305px;
+  padding: 10px;
+}
+.create_dish_container--form form input {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #9e9e9e;
+  padding: 0 15px;
+  font-size: 1rem;
+}
+.create_dish_container--form form input::-webkit-outer-spin-button, .create_dish_container--form form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.create_dish_container--form form label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.create_dish_container--form-top label {
+  position: absolute;
+}
+.create_dish_container--form-top input {
+  margin-top: 25px;
+}
+.create_dish_container--form-top-name {
+  width: 270px;
+}
+.create_dish_container--form-top-price {
+  margin-left: 10px;
+  width: 75px;
+}
+.create_dish_container--form textarea {
+  resize: none;
+  height: 80px;
+  width: 100%;
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -658,75 +737,4 @@ button:hover {
   height: 55px;
   border-radius: 30px;
   background: #8774ff;
-}
-
-.create_dish_container {
-  max-width: 380px;
-  box-shadow: 0px 7px 9px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-.create_dish_container--cover {
-  width: 380px;
-  height: 200px;
-  background-image: url("https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg");
-  border-radius: 10px 10px 0 0;
-}
-.create_dish_container--form-btn {
-  display: flex;
-  justify-content: space-between;
-  margin: 4px 0;
-}
-.create_dish_container--form-btn--create {
-  background: #a5f4ff;
-}
-.create_dish_container--form-btn--canel {
-  background: #ffa7a7;
-}
-.create_dish_container--form-btn button {
-  height: 30px;
-  width: 80px;
-  border: none;
-  font-weight: 800;
-  border-radius: 5px;
-}
-.create_dish_container--form form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 305px;
-  padding: 10px;
-}
-.create_dish_container--form form input {
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid #9e9e9e;
-  padding: 0 15px;
-  font-size: 1rem;
-}
-.create_dish_container--form form input::-webkit-outer-spin-button, .create_dish_container--form form input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-.create_dish_container--form form label {
-  font-size: 1rem;
-  font-weight: 500;
-}
-.create_dish_container--form-top label {
-  position: absolute;
-}
-.create_dish_container--form-top input {
-  margin-top: 25px;
-}
-.create_dish_container--form-top-name {
-  width: 270px;
-}
-.create_dish_container--form-top-price {
-  margin-left: 10px;
-  width: 75px;
-}
-.create_dish_container--form textarea {
-  resize: none;
-  height: 80px;
-  width: 100%;
-  border-radius: 10px;
 }
