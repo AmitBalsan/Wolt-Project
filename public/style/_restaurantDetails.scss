@@ -1,0 +1,39 @@
+.restaurant_details {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    &_cover {
+      //   background-image: url(https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141352.jpg);
+      height: 401px;
+      width: 100%;
+      background-size: cover;
+      box-shadow: 0px 7px 9px 4px rgba(0, 0, 0, 0.25);
+    }
+    &_detail {
+      padding: 25px;
+      h3 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+        color: #5e5e5e;
+        font-weight: 500;
+      }
+    }
+    &_back {
+      padding: 25px;
+      button {
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        font-weight: 700;
+        &:hover {
+          background-color: white;
+        }
+      }
+    }
+    &_dish {
+      border-top: 1px solid #cdcdcd;
+    }
+  }
+}

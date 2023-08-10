@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../dist/helper.js" defer></script>
+    <script src="./dist/restaurant.js" defer></script>
+
+    <link rel="stylesheet" href="../style.css" />
+    <title>Restaurant Manager</title>
+  </head>
+  <body onload="getRestaurant()">
+    <div class="popup"></div>
+    <section class="header">
+      <img src="../assets/images/DAI-logo.png" alt="DAI Logo" />
+      <div>
+        <input type="text" />
+      </div>
+      <div class="header_btn">
+        <button class="header_btn--signup" onclick="openSignUp()">
+          SIGN-UP
+        </button>
+        <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
+      </div>
+    </section>
+    <div class="restaurant"></div>
+    <div class="body"></div>
+  </body>
+</html>

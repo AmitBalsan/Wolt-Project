@@ -7,4 +7,4 @@ const CitySchema = new Schema({
 
 const CityModal = mongoose.model("City", CitySchema);
 
-export default CitySchema;
+export default CityModal;

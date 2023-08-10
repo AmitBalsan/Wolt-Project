@@ -6,4 +6,4 @@ var CitySchema = new mongoose_1.Schema({
     cityID: Number
 });
 var CityModal = mongoose_1["default"].model("City", CitySchema);
-exports["default"] = CitySchema;
+exports["default"] = CityModal;

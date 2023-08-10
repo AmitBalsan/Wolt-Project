@@ -1,3 +1,18 @@
+.popup {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background: #8080807a;
+  z-index: 5;
+}
+
+.create_restaurant {
+  position: absolute;
+  background-color: white;
+  top: 150px;
+  border-radius: 10px;
+}
 .create_restaurant-container {
   display: flex;
   flex-direction: column;
@@ -7,7 +22,6 @@
   width: 1000px;
   border-radius: 10px;
   margin: 0 auto;
-  margin-top: 40px;
   box-shadow: 0px 4px 9px 7px rgba(0, 0, 0, 0.25);
 }
 .create_restaurant-container-info {

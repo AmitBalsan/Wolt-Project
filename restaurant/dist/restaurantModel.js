@@ -7,7 +7,8 @@ var RestaurantSchema = new mongoose_1.Schema({
     phone: String,
     bmNumber: String,
     userID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "User" },
+    cityID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "City" },
     street: String
 });
-var RestaurantModal = mongoose_1["default"].model("Subscribe", RestaurantSchema);
+var RestaurantModal = mongoose_1["default"].model("Restaurant", RestaurantSchema);
 exports["default"] = RestaurantModal;

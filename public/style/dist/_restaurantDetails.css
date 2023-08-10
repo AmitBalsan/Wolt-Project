@@ -1,0 +1,36 @@
+.restaurant_details_container {
+  display: flex;
+  flex-direction: column;
+}
+.restaurant_details_container_cover {
+  height: 401px;
+  width: 100%;
+  background-size: cover;
+  box-shadow: 0px 7px 9px 4px rgba(0, 0, 0, 0.25);
+}
+.restaurant_details_container_detail {
+  padding: 25px;
+}
+.restaurant_details_container_detail h3 {
+  font-size: 2.5rem;
+}
+.restaurant_details_container_detail p {
+  font-size: 1.2rem;
+  color: #5e5e5e;
+  font-weight: 500;
+}
+.restaurant_details_container_back {
+  padding: 25px;
+}
+.restaurant_details_container_back button {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.restaurant_details_container_back button:hover {
+  background-color: white;
+}
+.restaurant_details_container_dish {
+  border-top: 1px solid #cdcdcd;
+}

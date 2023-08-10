@@ -36,12 +36,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createUser = exports.loginUser = void 0;
+exports.login = exports.createUser = exports.loginUser = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var userModel_1 = require("./userModel");
+var dotenv = require("dotenv");
+dotenv.config();
 var secret = process.env.JWT_SECRET;
+// const secret: string = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 exports.loginUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, userDB, token, error_1;
+    var _a, email, password, userDB, user, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -59,9 +62,14 @@ exports.loginUser = function (req, res) { return __awaiter(void 0, void 0, void 
                 userDB = _b.sent();
                 if (!userDB)
                     throw new Error("There is no user like that");
+                user = {
+                    firstName: userDB.firstName,
+                    lastName: userDB.lastName,
+                    userType: userDB.userType
+                };
                 token = jwt_simple_1["default"].encode({ userId: userDB._id, role: "public" }, secret);
                 res.cookie("user", token, { maxAge: 50000000, httpOnly: true });
-                res.status(201).send({ ok: true });
+                res.status(201).send({ ok: true, user: user });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();
@@ -117,6 +125,34 @@ exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void
                 res.status(500).send({ error: error_2.message });
                 return [3 /*break*/, 7];
             case 7: return [2 /*return*/];
+        }
+    });
+}); };
+exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var user, decoded, userId, userDB, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                user = req.cookies["user"];
+                decoded = jwt_simple_1["default"].decode(user, secret);
+                userId = decoded.userId;
+                if (!userId)
+                    throw new Error("Please Login");
+                return [4 /*yield*/, userModel_1["default"].findById(userId)];
+            case 1:
+                userDB = _a.sent();
+                if (!userDB)
+                    throw new Error("There is no User");
+                res
+                    .status(201)
+                    .send({ message: "ok", login: true, userType: userDB.userType });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                res.status(500).send({ error: error_3.message, login: false });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

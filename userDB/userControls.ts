@@ -1,7 +1,11 @@
 import jwt from "jwt-simple";
 import UserModal from "./userModel";
+import * as dotenv from "dotenv";
 
-const secret: string | undefined = process.env.JWT_SECRET;
+dotenv.config();
+
+const secret: string | undefined = process.env.JWT_SECRET as string;
+// const secret: string = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 
 export const loginUser = async (req: any, res: any) => {
   try {
@@ -15,11 +19,16 @@ export const loginUser = async (req: any, res: any) => {
       password: password,
     });
     if (!userDB) throw new Error("There is no user like that");
+    const user = {
+      firstName: userDB.firstName,
+      lastName: userDB.lastName,
+      userType: userDB.userType,
+    };
 
     const token = jwt.encode({ userId: userDB._id, role: "public" }, secret!);
     res.cookie("user", token, { maxAge: 50000000, httpOnly: true });
 
-    res.status(201).send({ ok: true });
+    res.status(201).send({ ok: true, user });
   } catch (error: any) {
     console.log(error);
     res.status(500).send({ error: error.message });
@@ -56,5 +65,22 @@ export const createUser = async (req: any, res: any) => {
     }
   } catch (error: any) {
     res.status(500).send({ error: error.message });
+  }
+};
+
+export const login = async (req: any, res: any) => {
+  try {
+    const user = req.cookies["user"];
+    const decoded = jwt.decode(user, secret);
+    const { userId } = decoded;
+    if (!userId) throw new Error("Please Login");
+    const userDB = await UserModal.findById(userId);
+    if (!userDB) throw new Error("There is no User");
+
+    res
+      .status(201)
+      .send({ message: "ok", login: true, userType: userDB.userType });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message, login: false });
   }
 };

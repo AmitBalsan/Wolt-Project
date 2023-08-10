@@ -7,36 +7,40 @@
     <title>Document</title>
   </head>
   <body>
-    <selection class="create_restaurant">
-      <div class="create_restaurant-container">
-        <div class="create_restaurant-container-headline">
-          <h3>New Restaurant</h3>
-        </div>
-        <div class="create_restaurant-container-info">
-          <form onsubmit="createRestaurant(event)">
-            <div class="create_restaurant-container-info--details">
-              <div class="create_restaurant-container-info--details-input">
-                <label>Name</label>
-                <input type="text" name="name" />
-                <label>Cover Image</label>
-                <input type="text" name="image" />
-              </div>
-              <div class="create_restaurant-container-info--details-input">
-                <label>Phone Number</label>
-                <input type="text" name="phone" />
-                <label>BN Number</label>
-                <input type="text" name="bn" />
-              </div>
-              <div class="create_restaurant-container-info--details-input">
-                <label>City</label>
-                <input type="text" name="city" />
-                <label>Street</label>
-                <input type="street" name="street" />
-              </div>
+    <selection class="create_dish">
+      <div class="create_dish_container">
+        <div class="create_dish_container--cover"></div>
+        <div class="create_dish_container--form">
+          <form onsubmit="">
+            <div class="create_dish_container--form-top">
+              <label>Dish Name</label>
+              <input
+                class="create_dish_container--form-top-name"
+                type="text"
+                name="dishName"
+              />
+              <label>Price</label>
+              <input
+                class="create_dish_container--form-top-price"
+                type="number"
+                name="price"
+                maxlength="4"
+              />
             </div>
-            <div class="create_restaurant-container-btn">
-              <button id="cancel">Cancel</button>
-              <button type="submit" id="Next">Next</button>
+            <label>Image</label>
+            <input type="text" name="image" />
+            <label>Notes</label>
+            <textarea type="text" name="notes"> </textarea>
+            <div class="create_dish_container--form-btn">
+              <button class="create_dish_container--form-btn--canel">
+                Cancel
+              </button>
+              <button
+                class="create_dish_container--form-btn--create"
+                type="submit"
+              >
+                Create
+              </button>
             </div>
           </form>
         </div>
