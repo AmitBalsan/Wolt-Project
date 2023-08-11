@@ -8,14 +8,7 @@ function closeModal() {
     popup.style.position = "unset";
 }
 function getRestaurant() {
-    if (loginUser) {
-        var userN = loginUser.firstName.charAt(0);
-        var userL = loginUser.lastName.charAt(0);
-        var userName = "" + userN + userL;
-        headerAvatar.innerHTML = userAvatar;
-        var avatarName = document.querySelector(".avatar__initials");
-        avatarName.innerHTML = userName;
-    }
+    createAvatar();
     fetch("/api/get-restaurant")
         .then(function (res) { return res.json(); })
         .then(function (data) {

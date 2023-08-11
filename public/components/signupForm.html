@@ -7,42 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <selection class="create_dish">
-      <div class="create_dish_container">
-        <div class="create_dish_container--cover"></div>
-        <div class="create_dish_container--form">
-          <form onsubmit="">
-            <div class="create_dish_container--form-top">
-              <label>Dish Name</label>
-              <input
-                class="create_dish_container--form-top-name"
-                type="text"
-                name="dishName"
-              />
-              <label>Price</label>
-              <input
-                class="create_dish_container--form-top-price"
-                type="number"
-                name="price"
-                maxlength="4"
-              />
-            </div>
-            <label>Image</label>
-            <input type="text" name="image" />
-            <label>Notes</label>
-            <textarea type="text" name="notes"> </textarea>
-            <div class="create_dish_container--form-btn">
-              <button class="create_dish_container--form-btn--canel">
-                Cancel
-              </button>
-              <button
-                class="create_dish_container--form-btn--create"
-                type="submit"
-              >
-                Create
-              </button>
-            </div>
-          </form>
+    <selection class="dish">
+      <div class="dish_container">
+        <div class="dish_container-cover"></div>
+        <div class="dish_container-headline">
+          <h3>dish</h3>
+          <h4>₪54</h4>
+        </div>
+        <div class="dish_container-notes">
+          <p>this is a text</p>
+        </div>
+        <div class="dish_container-addcart">
+          <button>Add to Cart</button>
         </div>
       </div>
     </selection>
