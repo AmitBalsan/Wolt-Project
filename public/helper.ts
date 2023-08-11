@@ -1,6 +1,9 @@
 const signUpPopup = document.querySelector(".signUp-panel") as HTMLDivElement;
 const addRestaurant = document.querySelector(".body") as HTMLDivElement;
 const restaurantList = document.querySelector(".restaurant") as HTMLDivElement;
+const restaurantsList = document.querySelector(
+  ".restaurants"
+) as HTMLDivElement;
 const popup = document.querySelector(".popup") as HTMLDivElement;
 const headerAvatar = document.querySelector(".header_btn") as HTMLDivElement;
 
@@ -107,7 +110,7 @@ const newRestaurantBtn = `<selection class="new_restaurant">
 </div>
 </selection>`;
 
-const newRestaurantForm = `<selection class="create_restaurant">
+const newRestaurantForm = `    <selection class="create_restaurant">
 <div class="create_restaurant-container">
   <div class="create_restaurant-container-headline">
     <h3>New Restaurant</h3>
@@ -132,6 +135,16 @@ const newRestaurantForm = `<selection class="create_restaurant">
           <input type="text" name="city" />
           <label>Street</label>
           <input type="street" name="street" />
+        </div>
+      </div>
+      <div class="create_restaurant-container-info--details-note">
+        <label for="">notes</label>
+        <textarea name="notes"></textarea>
+        <div class="create_restaurant-container-info--details-time">
+          <label>Min Time</label>
+          <input name="minTime" type="number" />
+          <label>Max Time</label>
+          <input name="maxTime" type="number" />
         </div>
       </div>
       <div class="create_restaurant-container-btn">

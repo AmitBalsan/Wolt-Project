@@ -5,6 +5,9 @@ interface Restaurant {
   bmNumber: string;
   city: number;
   street: string;
+  notes: string;
+  minTime: number;
+  maxTime: number;
 }
 
 interface Dish {

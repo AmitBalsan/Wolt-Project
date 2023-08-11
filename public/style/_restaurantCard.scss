@@ -17,12 +17,14 @@
       }
     }
     &--content {
-      max-height: 150px;
       display: flex;
+      justify-content: space-around;
+      max-height: 150px;
       &-description {
         max-width: 300px;
         padding: 10px 15px;
         overflow: overlay;
+        margin-left: -30px;
         p {
           font-size: 0.75rem;
           color: #7e7e7e;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../dist/helper.js" defer></script>
+    <script src="./dist/client.js" defer></script>
+    <title>DAI Order Now</title>
+  </head>
+  <body onload="getRestaurantList()">
+    <section class="header">
+      <img src="../assets/images/DAI-logo.png" alt="DAI Logo" />
+      <div>
+        <input type="text" />
+      </div>
+      <div class="header_btn">
+        <button class="header_btn--signup" onclick="openSignUp()">
+          SIGN-UP
+        </button>
+        <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
+      </div>
+    </section>
+    <div class="restaurants"></div>
+  </body>
+</html>

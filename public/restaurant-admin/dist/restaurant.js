@@ -33,7 +33,10 @@ function createRestaurant(event) {
         phoneNumber: event.target.elements.phone.value,
         bmNumber: event.target.elements.bn.value,
         city: event.target.elements.city.value,
-        street: event.target.elements.street.value
+        street: event.target.elements.street.value,
+        notes: event.target.elements.notes.value,
+        minTime: event.target.elements.minTime.value,
+        maxTime: event.target.elements.maxTime.value
     };
     fetch("/api/create-restaurant", {
         method: "POST",

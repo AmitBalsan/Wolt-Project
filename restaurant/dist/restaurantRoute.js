@@ -6,5 +6,6 @@ var router = express_1["default"].Router();
 router
     .post("/create-restaurant", restaurantControls_1.createRestaurant)
     .get("/get-restaurant", restaurantControls_1.getRestaurant)["delete"]("/delete-restaurant", restaurantControls_1.handleDelete)
-    .patch("/get-res", restaurantControls_1.restaurant);
+    .patch("/get-res", restaurantControls_1.restaurant)
+    .get("/get-restaurants", restaurantControls_1.getRestaurantAllList);
 exports["default"] = router;

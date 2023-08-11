@@ -7,7 +7,17 @@ const secret: string = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 
 export const createRestaurant = async (req: any, res: any) => {
   try {
-    const { name, image, phoneNumber, bmNumber, city, street } = req.body.res;
+    const {
+      name,
+      image,
+      phoneNumber,
+      bmNumber,
+      city,
+      street,
+      notes,
+      minTime,
+      maxTime,
+    } = req.body.res;
     if (!name) throw new Error("There is no restaurant Name");
     if (!image) throw new Error("There is no restaurant image");
     if (!phoneNumber) throw new Error("There is no phoneNumber");
@@ -26,6 +36,9 @@ export const createRestaurant = async (req: any, res: any) => {
       street,
       userID: userId,
       cityID: cityModel,
+      notes,
+      minTime,
+      maxTime,
     });
 
     const restaurantList = await RestaurantModal.find({ userID: userId });
@@ -86,6 +99,16 @@ export const restaurant = async (req: any, res: any) => {
     };
 
     res.status(200).send({ resDetails, resID });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const getRestaurantAllList = async (req: any, res: any) => {
+  try {
+    const restaurantList = await RestaurantModal.find({});
+    if (!restaurantList) throw new Error("There is no restaurant");
+    res.status(200).send(restaurantList);
   } catch (error: any) {
     res.status(500).send({ error: error.message });
   }

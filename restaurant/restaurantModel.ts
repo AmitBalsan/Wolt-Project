@@ -8,6 +8,9 @@ const RestaurantSchema = new Schema({
   userID: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   cityID: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
   street: String,
+  notes: String,
+  minTime: Number,
+  maxTime: Number,
 });
 
 const RestaurantModal = mongoose.model("Restaurant", RestaurantSchema);

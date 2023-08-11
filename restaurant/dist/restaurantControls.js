@@ -36,18 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.restaurant = exports.handleDelete = exports.getRestaurant = exports.createRestaurant = void 0;
+exports.getRestaurantAllList = exports.restaurant = exports.handleDelete = exports.getRestaurant = exports.createRestaurant = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var restaurantModel_1 = require("./restaurantModel");
 var cityModel_1 = require("../city/cityModel");
 var secret = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 exports.createRestaurant = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, image, phoneNumber, bmNumber, city, street, user, decoded, userId, cityModel, restaurantDB, restaurantList, error_1;
+    var _a, name, image, phoneNumber, bmNumber, city, street, notes, minTime, maxTime, user, decoded, userId, cityModel, restaurantDB, restaurantList, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 4, , 5]);
-                _a = req.body.res, name = _a.name, image = _a.image, phoneNumber = _a.phoneNumber, bmNumber = _a.bmNumber, city = _a.city, street = _a.street;
+                _a = req.body.res, name = _a.name, image = _a.image, phoneNumber = _a.phoneNumber, bmNumber = _a.bmNumber, city = _a.city, street = _a.street, notes = _a.notes, minTime = _a.minTime, maxTime = _a.maxTime;
                 if (!name)
                     throw new Error("There is no restaurant Name");
                 if (!image)
@@ -73,7 +73,10 @@ exports.createRestaurant = function (req, res) { return __awaiter(void 0, void 0
                         bmNumber: bmNumber,
                         street: street,
                         userID: userId,
-                        cityID: cityModel
+                        cityID: cityModel,
+                        notes: notes,
+                        minTime: minTime,
+                        maxTime: maxTime
                     })];
             case 2:
                 restaurantDB = _b.sent();
@@ -169,6 +172,27 @@ exports.restaurant = function (req, res) { return __awaiter(void 0, void 0, void
             case 2:
                 error_4 = _a.sent();
                 res.status(500).send({ error: error_4.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getRestaurantAllList = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var restaurantList, error_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, restaurantModel_1["default"].find({})];
+            case 1:
+                restaurantList = _a.sent();
+                if (!restaurantList)
+                    throw new Error("There is no restaurant");
+                res.status(200).send(restaurantList);
+                return [3 /*break*/, 3];
+            case 2:
+                error_5 = _a.sent();
+                res.status(500).send({ error: error_5.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

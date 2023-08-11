@@ -47,7 +47,6 @@ exports.createDish = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _b.trys.push([0, 3, , 4]);
                 _a = req.body.dish, name = _a.name, price = _a.price, image = _a.image, notes = _a.notes, resID = _a.resID;
-                console.log(req.body);
                 if (!name)
                     throw new Error("There is no Name");
                 if (!price)

@@ -14,6 +14,9 @@ function isLogin() {
             if (data.userType === 2) {
                 window.location.replace("/restaurant-admin/restaurant.html");
             }
+            else if (data.userType === 1) {
+                window.location.replace("/client/client.html");
+            }
         }
         else {
             localStorage.removeItem("user");
@@ -46,9 +49,7 @@ function userLogin(event) {
         .then(function (data) {
         console.log(data.user);
         localStorage.setItem("user", JSON.stringify(data.user));
-        if (data.user.userType === 2) {
-            window.location.replace("/restaurant-admin/restaurant.html");
-        }
+        isLogin();
     });
 }
 function createUser(event) {

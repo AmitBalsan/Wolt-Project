@@ -6,7 +6,6 @@ const secret: string | undefined = process.env.JWT_SECRET as string;
 export const createDish = async (req: any, res: any) => {
   try {
     const { name, price, image, notes, resID } = req.body.dish;
-    console.log(req.body);
     if (!name) throw new Error("There is no Name");
     if (!price) throw new Error("There is no price");
     if (!image) throw new Error("There is no image");

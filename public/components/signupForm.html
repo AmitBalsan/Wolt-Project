@@ -7,18 +7,48 @@
     <title>Document</title>
   </head>
   <body>
-    <selection class="dish">
-      <div class="dish_container">
-        <div class="dish_container-cover"></div>
-        <div class="dish_container-headline">
-          <h3>dish</h3>
-          <h4>₪54</h4>
+    <selection class="create_restaurant">
+      <div class="create_restaurant-container">
+        <div class="create_restaurant-container-headline">
+          <h3>New Restaurant</h3>
         </div>
-        <div class="dish_container-notes">
-          <p>this is a text</p>
-        </div>
-        <div class="dish_container-addcart">
-          <button>Add to Cart</button>
+        <div class="create_restaurant-container-info">
+          <form onsubmit="createRestaurant(event)">
+            <div class="create_restaurant-container-info--details">
+              <div class="create_restaurant-container-info--details-input">
+                <label>Name</label>
+                <input type="text" name="name" />
+                <label>Cover Image</label>
+                <input type="text" name="image" />
+              </div>
+              <div class="create_restaurant-container-info--details-input">
+                <label>Phone Number</label>
+                <input type="text" name="phone" />
+                <label>BN Number</label>
+                <input type="text" name="bn" />
+              </div>
+              <div class="create_restaurant-container-info--details-input">
+                <label>City</label>
+                <input type="text" name="city" />
+                <label>Street</label>
+                <input type="street" name="street" />
+              </div>
+            </div>
+            <div class="create_restaurant-container-info--details-note">
+              <label for="">notes</label>
+              <textarea></textarea>
+              <div class="create_restaurant-container-info--details-time">
+                <label>Min Time</label>
+                <input type="number" />
+                <label>Max Time</label>
+                <input type="number" />
+              </div>
+            </div>
+            <div class="create_restaurant-container-btn">
+              <button id="cancel" onclick="closeModal()">Cancel</button>
+              <button type="submit" id="Next">Next</button>
+            </div>
+          </form>
         </div>
       </div>
     </selection>
