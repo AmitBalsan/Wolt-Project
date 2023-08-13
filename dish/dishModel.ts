@@ -7,6 +7,7 @@ const DishSchema = new Schema({
   notes: String,
   resID: { type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" },
   userID: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  date: { type: Date, default: Date.now },
 });
 
 const DishModal = mongoose.model("Dish", DishSchema);

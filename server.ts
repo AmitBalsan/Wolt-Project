@@ -5,7 +5,9 @@ import subscribeRoute from "./subscribe/subscribeRoute";
 import userRoute from "./userDB/userRoute";
 import restaurantRoute from "./restaurant/restaurantRoute";
 import dishRoute from "./dish/dishRoute";
+import cartRoute from "./cart/cartRoute";
 import cookieParser from "cookie-parser";
+import orderRoute from "./order/orderRoute";
 
 dotenv.config();
 
@@ -32,6 +34,8 @@ app.use("/api", subscribeRoute);
 app.use("/api", userRoute);
 app.use("/api", restaurantRoute);
 app.use("/api", dishRoute);
+app.use("/api", cartRoute);
+app.use("/api", orderRoute);
 app.listen(port, () => {
   console.log("server listen on port ", port);
 });

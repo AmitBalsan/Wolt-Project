@@ -1,28 +1,3 @@
-function isLogin() {
-    fetch("/api/login")
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-        console.log(data.login);
-        if (data.login) {
-            var userN = loginUser.firstName.charAt(0);
-            var userL = loginUser.lastName.charAt(0);
-            var userName = "" + userN + userL;
-            console.log(userName);
-            headerAvatar.innerHTML = userAvatar;
-            var avatarName = document.querySelector(".avatar__initials");
-            avatarName.innerHTML = userName;
-            if (data.userType === 2) {
-                window.location.replace("/restaurant-admin/restaurant.html");
-            }
-            else if (data.userType === 1) {
-                window.location.replace("/client/client.html");
-            }
-        }
-        else {
-            localStorage.removeItem("user");
-        }
-    });
-}
 function openSignUp() {
     signUpPopup.innerHTML = signUpForm;
     signUpPopup.style.position = "fixed";
@@ -101,4 +76,3 @@ function handleSubscribe(event) {
         console.log(data);
     });
 }
-isLogin();

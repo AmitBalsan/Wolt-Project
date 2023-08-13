@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px;
+  cursor: pointer;
 }
 .restaurant_card_container {
   width: 362px;

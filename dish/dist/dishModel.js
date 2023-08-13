@@ -7,7 +7,8 @@ var DishSchema = new mongoose_1.Schema({
     image: String,
     notes: String,
     resID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "Restaurant" },
-    userID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "User" }
+    userID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "User" },
+    date: { type: Date, "default": Date.now }
 });
 var DishModal = mongoose_1["default"].model("Dish", DishSchema);
 exports["default"] = DishModal;

@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   email: String,
   password: String,
   userType: Number,
+  date: { type: Date, default: Date.now },
 });
 
 const UserModal = mongoose.model("User", UserSchema);

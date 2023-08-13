@@ -3,39 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./dist/test.js"></script>
     <title>Header With Search</title>
 
-    <link rel="stylesheet" href="../dist/style.css" />
+    <link rel="stylesheet" href="./header.css" />
   </head>
   <body>
-    <section class="header">
-      <img src="../assets/images/DAI-logo.png" alt="DAI Logo" />
-      <!-- <input type="search" name="" id="" /> -->
-      <!-- <sele id="citySuggestions"> -->
-      <input id="searchInput" type="text" placeholder="Search..." />
-      <select>
-        <option value="Tel Aviv">Tel Aviv</option>
-        <option value="Holon">Holon</option>
-        <option value="Givataim">Givataim</option>
-      </select>
-
-      <div class="header_btn">
-        <button class="header_btn--signup" onclick="openSignUp()">
-          SIGN-UP
-        </button>
-        <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
+    <section>
+      <button class="dropbtn" onclick="openDropDown()">click</button>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
       </div>
     </section>
-    <script>
-      function dropdown() {
-        const div = document.getElementById("citySuggestions");
-        const option = div.getElementsByTagName("option");
-        for (i = 0; i < option.length; i++) {
-          txtValue = option[i].textContent || option[i].innerText;
-
-          option[i].style.display = "";
-        }
-      }
-    </script>
   </body>
 </html>

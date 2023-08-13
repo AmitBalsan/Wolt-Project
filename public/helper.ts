@@ -1,3 +1,4 @@
+const loginUser = JSON.parse(localStorage.getItem("user")!);
 const signUpPopup = document.querySelector(".signUp-panel") as HTMLDivElement;
 const addRestaurant = document.querySelector(".body") as HTMLDivElement;
 const restaurantList = document.querySelector(".restaurant") as HTMLDivElement;
@@ -7,7 +8,6 @@ const restaurantsList = document.querySelector(
 const popup = document.querySelector(".popup") as HTMLDivElement;
 const headerAvatar = document.querySelector(".header_btn") as HTMLDivElement;
 
-const loginUser = JSON.parse(localStorage.getItem("user")!);
 const restaurantSelect = JSON.parse(localStorage.getItem("restaurant")!);
 
 const signUpForm = `<div class="signup">
@@ -120,31 +120,31 @@ const newRestaurantForm = `    <selection class="create_restaurant">
       <div class="create_restaurant-container-info--details">
         <div class="create_restaurant-container-info--details-input">
           <label>Name</label>
-          <input type="text" name="name" />
+          <input type="text" name="name"  required/>
           <label>Cover Image</label>
-          <input type="text" name="image" />
+          <input type="text" name="image"  required/>
         </div>
         <div class="create_restaurant-container-info--details-input">
           <label>Phone Number</label>
-          <input type="text" name="phone" />
+          <input type="text" name="phone" required />
           <label>BN Number</label>
-          <input type="text" name="bn" />
+          <input type="text" name="bn"  required/>
         </div>
         <div class="create_restaurant-container-info--details-input">
           <label>City</label>
-          <input type="text" name="city" />
+          <input type="text" name="city"  required/>
           <label>Street</label>
-          <input type="street" name="street" />
+          <input type="street" name="street"  required/>
         </div>
       </div>
       <div class="create_restaurant-container-info--details-note">
         <label for="">notes</label>
-        <textarea name="notes"></textarea>
+        <textarea name="notes" required></textarea>
         <div class="create_restaurant-container-info--details-time">
           <label>Min Time</label>
-          <input name="minTime" type="number" />
+          <input name="minTime" type="number"  required/>
           <label>Max Time</label>
-          <input name="maxTime" type="number" />
+          <input name="maxTime" type="number"  required/>
         </div>
       </div>
       <div class="create_restaurant-container-btn">
@@ -180,10 +180,27 @@ const restaurantManageCard = `<selection class="restaurant_modal">
 </div>
 </selection>`;
 
-const userAvatar = `<div class="avatar">
+const userAvatar = `
+<div  onclick="getCartItems()" class="header_btn--cart">
+<img
+  src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png"
+  alt=""
+/>
+<div class="header_btn--cart">
+  <div class="header_btn--cart-count">
+    <div class="header_btn--cart-count-initials"></div>
+  </div>
+</div>
+</div>
+<section>
+<div class="avatar">
 <a href="#">
-  <div class="avatar__icon avatar__icon--big">
-    <div class="avatar__initials"></div>`;
+  <div  onclick="openDropDown()" class="dropbtn avatar__icon avatar__icon--big">
+    <div class="avatar__initials"></div>
+<div class="dropdown-content">
+  <p onClick="logOut()">Log Out</p>
+</div>
+</section>`;
 
 const createDishModal = ` <selection class="create_dish">
 <div class="create_dish_container">
@@ -241,16 +258,23 @@ const dishModal = `<selection class="dish">
 </div>
 </selection>`;
 
-function createAvatar() {
-  if (loginUser) {
-    const userN: string = loginUser.firstName.charAt(0).toUpperCase();
-    const userL: string = loginUser.lastName.charAt(0).toUpperCase();
-    const userName = `${userN}${userL}`;
-    headerAvatar.innerHTML = userAvatar;
-    const avatarName = document.querySelector(
-      ".avatar__initials"
-    ) as HTMLDivElement;
+const cartModal = `<section class="cart">
+<div class="cart-container">
+<div onclick="closeModal()" class="cart-container--exit">
+<p class="cart-container--exit-right"></p>
+<p class="cart-container--exit-left"></p>
+</div>
+<h2>CART</h2>
+  <div class="cart-container--content">
 
-    avatarName.innerHTML = userName;
-  }
-}
+  </div>
+  <div class="cart-container-total">
+    <p>Total</p>
+    <p class="total"></p>
+  </div>
+  <div class="cart-container-btn">
+    <button onclick="onPay()">Pay</button>
+  </div>
+</div>
+</section>
+`;

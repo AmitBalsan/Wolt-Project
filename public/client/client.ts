@@ -1,3 +1,5 @@
+checkCart();
+isClientLogin();
 createAvatar();
 
 function getRestaurantList() {
@@ -17,7 +19,7 @@ function renderRestaurant(restaurants) {
     .map(
       (
         res
-      ) => `<selection onselect="openModal('${res._id}')" class="restaurant_card">
+      ) => `<selection onclick="openModal('${res._id}')" class="restaurant_card">
     <div class="restaurant_card_container">
       <div class="restaurant_card_container--img">
         <img src="${res.image}" alt="" />
@@ -37,7 +39,11 @@ function renderRestaurant(restaurants) {
     `
     )
     .join("");
-  console.log(renderHtml);
 
   restaurantsList.innerHTML = renderHtml;
+}
+
+function openModal(resID) {
+  localStorage.setItem("restaurant", JSON.stringify({ resID: resID }));
+  window.location.replace("/client/restaurant-details/restaurant-details.html");
 }

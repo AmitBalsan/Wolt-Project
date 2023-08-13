@@ -40,6 +40,7 @@ exports.getRestaurantAllList = exports.restaurant = exports.handleDelete = expor
 var jwt_simple_1 = require("jwt-simple");
 var restaurantModel_1 = require("./restaurantModel");
 var cityModel_1 = require("../city/cityModel");
+var dishModel_1 = require("../dish/dishModel");
 var secret = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 exports.createRestaurant = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, image, phoneNumber, bmNumber, city, street, notes, minTime, maxTime, user, decoded, userId, cityModel, restaurantDB, restaurantList, error_1;
@@ -118,32 +119,35 @@ exports.getRestaurant = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.handleDelete = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var restaurantID, deleteRestaurant, user, decoded, userId, restaurantList, error_3;
+    var restaurantID, deleteDish, deleteRestaurant, user, decoded, userId, restaurantList, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 4, , 5]);
                 restaurantID = req.body.restaurantID;
                 if (!restaurantID)
                     throw new Error("There is no restaurant ID");
-                return [4 /*yield*/, restaurantModel_1["default"].findByIdAndRemove(restaurantID)];
+                return [4 /*yield*/, dishModel_1["default"].deleteMany({ resID: restaurantID })];
             case 1:
+                deleteDish = _a.sent();
+                return [4 /*yield*/, restaurantModel_1["default"].findByIdAndRemove(restaurantID)];
+            case 2:
                 deleteRestaurant = _a.sent();
                 user = req.cookies["user"];
                 decoded = jwt_simple_1["default"].decode(user, secret);
                 userId = decoded.userId;
                 return [4 /*yield*/, restaurantModel_1["default"].find({ userID: userId })];
-            case 2:
+            case 3:
                 restaurantList = _a.sent();
                 if (!restaurantList)
                     throw new Error("There is no Restaurant");
                 res.status(201).send({ message: "ok", restaurantList: restaurantList });
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 error_3 = _a.sent();
                 res.status(500).send({ error: error_3.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };

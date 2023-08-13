@@ -2,6 +2,7 @@ import jwt from "jwt-simple";
 import SubscribeModal from "./restaurantModel";
 import RestaurantModal from "./restaurantModel";
 import CityModal from "../city/cityModel";
+import DishModal from "../dish/dishModel";
 
 const secret: string = "fdkjdfjvbjfdbvkafkdhfxzcvzfd";
 
@@ -68,6 +69,8 @@ export const handleDelete = async (req: any, res: any) => {
   try {
     const { restaurantID } = req.body;
     if (!restaurantID) throw new Error("There is no restaurant ID");
+    const deleteDish = await DishModal.deleteMany({ resID: restaurantID });
+
     const deleteRestaurant = await RestaurantModal.findByIdAndRemove(
       restaurantID
     );

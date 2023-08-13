@@ -84,3 +84,13 @@ export const login = async (req: any, res: any) => {
     res.status(500).send({ error: error.message, login: false });
   }
 };
+
+export const logout = async (req: any, res: any) => {
+  try {
+    res.clearCookie("user");
+
+    res.status(200).send({ logout: true });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
+};

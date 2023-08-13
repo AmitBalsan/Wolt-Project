@@ -7,7 +7,9 @@ var subscribeRoute_1 = require("./subscribe/subscribeRoute");
 var userRoute_1 = require("./userDB/userRoute");
 var restaurantRoute_1 = require("./restaurant/restaurantRoute");
 var dishRoute_1 = require("./dish/dishRoute");
+var cartRoute_1 = require("./cart/cartRoute");
 var cookie_parser_1 = require("cookie-parser");
+var orderRoute_1 = require("./order/orderRoute");
 dotenv.config();
 var uri = process.env.MONGOOSE_URI + "WoltProject";
 var port = process.env.PORT;
@@ -29,6 +31,8 @@ app.use("/api", subscribeRoute_1["default"]);
 app.use("/api", userRoute_1["default"]);
 app.use("/api", restaurantRoute_1["default"]);
 app.use("/api", dishRoute_1["default"]);
+app.use("/api", cartRoute_1["default"]);
+app.use("/api", orderRoute_1["default"]);
 app.listen(port, function () {
     console.log("server listen on port ", port);
 });
