@@ -1,4 +1,8 @@
+import jwt from "jwt-simple";
+import SubscribeModal from "./cityModel";
 import CityModal from "./cityModel";
+
+const secret: string | undefined = process.env.JWT_SECRET;
 
 export const getCity = async (req: any, res: any) => {
   try {

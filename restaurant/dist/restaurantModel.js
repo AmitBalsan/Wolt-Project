@@ -11,7 +11,8 @@ var RestaurantSchema = new mongoose_1.Schema({
     street: String,
     notes: String,
     minTime: Number,
-    maxTime: Number
+    maxTime: Number,
+    addressID: { type: mongoose_1["default"].Schema.Types.ObjectId, ref: "Address" }
 });
 var RestaurantModal = mongoose_1["default"].model("Restaurant", RestaurantSchema);
 exports["default"] = RestaurantModal;

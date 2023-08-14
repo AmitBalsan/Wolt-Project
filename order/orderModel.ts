@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { CitySchema } from "../city/cityModel";
 
 const OrderSchema = new Schema({
   userID: { type: mongoose.Schema.Types.ObjectId, ref: "User" },

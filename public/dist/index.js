@@ -48,7 +48,7 @@ function createUser(event) {
     })
         .then(function (res) { return res.json(); })
         .then(function (data) {
-        console.log(data);
+        openAddressModal(data.id);
     })["catch"](function (error) {
         console.log(error);
     });
@@ -75,4 +75,9 @@ function handleSubscribe(event) {
         .then(function (data) {
         console.log(data);
     });
+}
+function openAddressModal(userID) {
+    localStorage.setItem("userAddress", JSON.stringify(userID));
+    signUpPopup.innerHTML = cityList;
+    signUpPopup.style.position = "fixed";
 }

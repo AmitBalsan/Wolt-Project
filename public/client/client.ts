@@ -1,7 +1,6 @@
 checkCart();
 isClientLogin();
 createAvatar();
-
 function getRestaurantList() {
   fetch("/api/get-restaurants")
     .then((res) => res.json())

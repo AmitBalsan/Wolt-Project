@@ -742,6 +742,105 @@
   display: block;
 }
 
+.address {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.4784313725);
+  display: flex;
+  justify-content: center;
+}
+.address-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto 0;
+  align-items: center;
+  padding: 50px;
+}
+.address-container--exit {
+  position: relative;
+  left: 215px;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -20px;
+  cursor: pointer;
+}
+.address-container--exit-right {
+  border-bottom: 1px solid black;
+  height: 14px;
+  width: 25px;
+  position: absolute;
+  rotate: 135deg;
+  top: 10px;
+}
+.address-container--exit-left {
+  border-bottom: 1px solid black;
+  height: 15px;
+  width: 25px;
+  position: absolute;
+  rotate: 45deg;
+}
+.address-container--form-select {
+  height: 30px;
+  width: 350px;
+  border-radius: 7px;
+  height: 40px;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.address-container--form form {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-between;
+  width: 350px;
+}
+.address-container--form form label {
+  font-weight: 600;
+}
+.address-container--form form input {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #9e9e9e;
+  padding: 0 15px;
+  font-size: 1.25rem;
+}
+.address-container--form-selection {
+  width: 380px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+}
+.address-container--form-selection label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  font-size: 1.25rem;
+}
+
+.address-container-btn {
+  margin-top: 20px;
+}
+.address-container-btn button {
+  width: 350px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #8774ff;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  border: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

@@ -1,9 +1,10 @@
 "use strict";
 exports.__esModule = true;
+exports.CitySchema = void 0;
 var mongoose_1 = require("mongoose");
-var CitySchema = new mongoose_1.Schema({
+exports.CitySchema = new mongoose_1.Schema({
     cityName: String,
     cityID: Number
 });
-var CityModal = mongoose_1["default"].model("City", CitySchema);
+var CityModal = mongoose_1["default"].model("CityList", exports.CitySchema);
 exports["default"] = CityModal;

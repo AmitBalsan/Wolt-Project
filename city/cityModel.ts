@@ -1,10 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
-const CitySchema = new Schema({
+export const CitySchema = new Schema({
   cityName: String,
   cityID: Number,
 });
 
-const CityModal = mongoose.model("City", CitySchema);
+const CityModal = mongoose.model("CityList", CitySchema);
 
 export default CityModal;

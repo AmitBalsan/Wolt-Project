@@ -59,7 +59,7 @@ export const createUser = async (req: any, res: any) => {
       });
 
       const test = await UserModal.find({});
-      res.status(200).send({ send: "Registration Success" });
+      res.status(200).send({ send: "Registration Success", id: userDB._id });
     } else {
       throw new Error("This user is already exists");
     }

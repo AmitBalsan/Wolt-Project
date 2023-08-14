@@ -278,3 +278,49 @@ const cartModal = `<section class="cart">
 </div>
 </section>
 `;
+
+function getCity() {
+  fetch("/api/get-city")
+    .then((res) => res.json())
+    .then((data) => {
+      renderCityData(data.cityDB);
+    });
+}
+
+let cityList = "";
+function renderCityData(cites: City[]) {
+  console.log(cites);
+
+  const cityHTML = cites
+    .map((res) => ` <option value="${res._id}">${res.cityName}</option>`)
+    .join("");
+  cityList = `<div class="address">
+  <div class="address-container">
+    <div onclick="closeModal()" class="address-container--exit">
+      <p class="address-container--exit-right"></p>
+      <p class="address-container--exit-left"></p>
+    </div>
+    <div class="address-container--header"><h2>Address</h2></div>
+    <div class="address-container--form">
+      <form onsubmit="addUserAddress(event)">
+        <label for="city">City</label>
+        <select name="city" class="address-container--form-select">
+        ${cityHTML}
+        </select>
+        <label for="street">Street</label>
+        <input type="text" name="street" required />
+        <label for="home">Home</label>
+        <input type="number" name="home" required />
+        <label for="entrance">Entrance</label>
+        <input type="text" name="entrance" required />
+        <div class="address-container-btn">
+          <button type="submit">Add Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>`;
+  console.log(cityList);
+}
+
+getCity();

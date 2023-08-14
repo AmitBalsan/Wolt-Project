@@ -116,7 +116,7 @@ exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, userModel_1["default"].find({})];
             case 3:
                 test = _b.sent();
-                res.status(200).send({ send: "Registration Success" });
+                res.status(200).send({ send: "Registration Success", id: userDB._id });
                 return [3 /*break*/, 5];
             case 4: throw new Error("This user is already exists");
             case 5: return [3 /*break*/, 7];

@@ -11,6 +11,7 @@ const RestaurantSchema = new Schema({
   notes: String,
   minTime: Number,
   maxTime: Number,
+  addressID: { type: mongoose.Schema.Types.ObjectId, ref: "Address" },
 });
 
 const RestaurantModal = mongoose.model("Restaurant", RestaurantSchema);

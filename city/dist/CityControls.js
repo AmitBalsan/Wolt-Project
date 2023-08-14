@@ -38,7 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.getCity = void 0;
 var cityModel_1 = require("./cityModel");
-var secret = process.env.JWT_SECRET;
 exports.getCity = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var cityDB, error_1;
     return __generator(this, function (_a) {

@@ -17,3 +17,9 @@ interface Dish {
   notes: string;
   resID: string;
 }
+
+interface City {
+  _id: string;
+  cityName: string;
+  cityID: number;
+}

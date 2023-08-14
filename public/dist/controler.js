@@ -143,3 +143,28 @@ function isLogin() {
         }
     });
 }
+function addUserAddress(event) {
+    event.preventDefault();
+    var userAddress = {
+        cityName: event.target.elements.cityName.value,
+        street: event.target.elements.street.value,
+        home: event.target.elements.home.value,
+        entrance: event.target.elements.entrance.value
+    };
+    fetch("/api/add-address", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        console.log(data);
+        getCartItems();
+        checkCart();
+    })["catch"](function (error) {
+        console.log(error);
+    });
+}

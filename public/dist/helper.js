@@ -17,3 +17,20 @@ var userAvatar = "\n<div  onclick=\"getCartItems()\" class=\"header_btn--cart\">
 var createDishModal = " <selection class=\"create_dish\">\n<div class=\"create_dish_container\">\n  <div class=\"create_dish_container--cover\"></div>\n  <div class=\"create_dish_container--form\">\n    <form onsubmit=\"createDish(event)\">\n      <div class=\"create_dish_container--form-top\">\n        <label>Dish Name</label>\n        <input\n          class=\"create_dish_container--form-top-name\"\n          type=\"text\"\n          name=\"dishName\"\n        />\n        <label>Price</label>\n        <input\n          class=\"create_dish_container--form-top-price\"\n          type=\"number\"\n          name=\"price\"\n          maxlength=\"4\"\n        />\n      </div>\n      <label>Image</label>\n      <input onchange=\"imagePreview(this.value)\" type=\"text\" name=\"image\" />\n      <label>Notes</label>\n      <textarea type=\"text\" name=\"notes\"> </textarea>\n      <div class=\"create_dish_container--form-btn\">\n        <button onclick=\"closeModal()\" class=\"create_dish_container--form-btn--canel\">\n          Cancel\n        </button>\n        <button\n          class=\"create_dish_container--form-btn--create\"\n          type=\"submit\"\n        >\n          Create\n        </button>\n      </div>\n    </form>\n  </div>\n</div>\n</selection>";
 var dishModal = "<selection class=\"dish\">\n<div class=\"dish_container\">\n  <div class=\"dish_container-cover\"></div>\n  <div class=\"dish_container-headline\">\n    <h3>dish</h3>\n    <h4>\u20AA54</h4>\n  </div>\n  <div class=\"dish_container-notes\">\n    <p>this is a text</p>\n  </div>\n  <div class=\"dish_container-addcart\">\n    <button>Add to Cart</button>\n  </div>\n</div>\n</selection>";
 var cartModal = "<section class=\"cart\">\n<div class=\"cart-container\">\n<div onclick=\"closeModal()\" class=\"cart-container--exit\">\n<p class=\"cart-container--exit-right\"></p>\n<p class=\"cart-container--exit-left\"></p>\n</div>\n<h2>CART</h2>\n  <div class=\"cart-container--content\">\n\n  </div>\n  <div class=\"cart-container-total\">\n    <p>Total</p>\n    <p class=\"total\"></p>\n  </div>\n  <div class=\"cart-container-btn\">\n    <button onclick=\"onPay()\">Pay</button>\n  </div>\n</div>\n</section>\n";
+function getCity() {
+    fetch("/api/get-city")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        renderCityData(data.cityDB);
+    });
+}
+var cityList = "";
+function renderCityData(cites) {
+    console.log(cites);
+    var cityHTML = cites
+        .map(function (res) { return " <option value=\"" + res._id + "\">" + res.cityName + "</option>"; })
+        .join("");
+    cityList = "<div class=\"address\">\n  <div class=\"address-container\">\n    <div onclick=\"closeModal()\" class=\"address-container--exit\">\n      <p class=\"address-container--exit-right\"></p>\n      <p class=\"address-container--exit-left\"></p>\n    </div>\n    <div class=\"address-container--header\"><h2>Address</h2></div>\n    <div class=\"address-container--form\">\n      <form onsubmit=\"addUserAddress(event)\">\n        <label for=\"city\">City</label>\n        <select name=\"city\" class=\"address-container--form-select\">\n        " + cityHTML + "\n        </select>\n        <label for=\"street\">Street</label>\n        <input type=\"text\" name=\"street\" required />\n        <label for=\"home\">Home</label>\n        <input type=\"number\" name=\"home\" required />\n        <label for=\"entrance\">Entrance</label>\n        <input type=\"text\" name=\"entrance\" required />\n        <div class=\"address-container-btn\">\n          <button type=\"submit\">Add Address</button>\n        </div>\n      </form>\n    </div>\n  </div>\n  </div>";
+    console.log(cityList);
+}
+getCity();
