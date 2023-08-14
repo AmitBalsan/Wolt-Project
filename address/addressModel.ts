@@ -1,8 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import { CitySchema } from "../city/cityModel";
 
 export const AddressSchema = new Schema({
-  cityName: String,
-  cityID: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
+  city: CitySchema,
   street: String,
   home: Number,
   entrance: String,

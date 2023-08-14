@@ -1,7 +1,7 @@
 import express from "express";
-import {} from "./addressControls";
+import { createAddress } from "./addressControls";
 const router = express.Router();
 
-router.get("/create-address");
+router.post("/add-address", createAddress);
 
 export default router;

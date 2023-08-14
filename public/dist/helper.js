@@ -1,4 +1,5 @@
 var loginUser = JSON.parse(localStorage.getItem("user"));
+var addressUser = JSON.parse(localStorage.getItem("userAddress"));
 var signUpPopup = document.querySelector(".signUp-panel");
 var addRestaurant = document.querySelector(".body");
 var restaurantList = document.querySelector(".restaurant");

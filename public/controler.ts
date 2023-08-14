@@ -179,11 +179,14 @@ function isLogin() {
 function addUserAddress(event) {
   event.preventDefault();
   const userAddress = {
-    cityName: event.target.elements.cityName.value,
+    cityID: event.target.elements.city.value,
     street: event.target.elements.street.value,
     home: event.target.elements.home.value,
     entrance: event.target.elements.entrance.value,
+    userID: addressUser,
   };
+
+  console.log(userAddress);
 
   fetch("/api/add-address", {
     method: "POST",
@@ -191,13 +194,11 @@ function addUserAddress(event) {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({}),
+    body: JSON.stringify({ userAddress }),
   })
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      getCartItems();
-      checkCart();
     })
     .catch((error) => {
       console.log(error);

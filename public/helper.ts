@@ -1,4 +1,5 @@
 const loginUser = JSON.parse(localStorage.getItem("user")!);
+const addressUser = JSON.parse(localStorage.getItem("userAddress")!);
 const signUpPopup = document.querySelector(".signUp-panel") as HTMLDivElement;
 const addRestaurant = document.querySelector(".body") as HTMLDivElement;
 const restaurantList = document.querySelector(".restaurant") as HTMLDivElement;

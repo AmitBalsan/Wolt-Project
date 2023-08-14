@@ -9,6 +9,7 @@ import cartRoute from "./cart/cartRoute";
 import cookieParser from "cookie-parser";
 import orderRoute from "./order/orderRoute";
 import cityRoute from "./city/cityRoute";
+import addressRoute from "./address/addressRoute";
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use("/api", dishRoute);
 app.use("/api", cartRoute);
 app.use("/api", orderRoute);
 app.use("/api", cityRoute);
+app.use("/api", addressRoute);
 
 app.listen(port, () => {
   console.log("server listen on port ", port);

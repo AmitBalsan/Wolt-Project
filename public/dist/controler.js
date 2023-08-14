@@ -146,24 +146,24 @@ function isLogin() {
 function addUserAddress(event) {
     event.preventDefault();
     var userAddress = {
-        cityName: event.target.elements.cityName.value,
+        cityID: event.target.elements.city.value,
         street: event.target.elements.street.value,
         home: event.target.elements.home.value,
-        entrance: event.target.elements.entrance.value
+        entrance: event.target.elements.entrance.value,
+        userID: addressUser
     };
+    console.log(userAddress);
     fetch("/api/add-address", {
         method: "POST",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({})
+        body: JSON.stringify({ userAddress: userAddress })
     })
         .then(function (res) { return res.json(); })
         .then(function (data) {
         console.log(data);
-        getCartItems();
-        checkCart();
     })["catch"](function (error) {
         console.log(error);
     });
