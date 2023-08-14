@@ -274,11 +274,42 @@ const cartModal = `<section class="cart">
     <p class="total"></p>
   </div>
   <div class="cart-container-btn">
-    <button onclick="onPay()">Pay</button>
+    <button onclick="onCheckOut()">Pay</button>
   </div>
 </div>
 </section>
 `;
+
+const paymentModal = ` <div class="payCard">
+<div class="payCard__x">
+  <div onclick="closeModal()" class="address-container--exit">
+    <p class="address-container--exit-right"></p>
+    <p class="address-container--exit-left"></p>
+  </div>
+</div>
+<h1 class="payCard__title">Payment</h1>
+<form class="payCard__payForm" onsubmit="onPay()">
+  <div class="payCard__payForm--cardNumber">
+    <label for="cardNum">Credit Card Number</label>
+    <input type="text" id="cardNum" class="maxWidth" required />
+  </div>
+  <div class="payCard__payForm--oneLine">
+    <div class="payCard__payForm--oneLine-expDate">
+      <label for="expiredDate">Expired Date</label>
+      <input type="text" id="expiredDate" class="minWidth" required />
+    </div>
+    <div class="payCard__payForm--oneLine-securityCode">
+      <label for="secCode">Security Code</label>
+      <input type="text" id="secCode" class="minWidth" required />
+    </div>
+  </div>
+  <div class="payCard__payForm--fullName">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" class="maxWidth" required />
+  </div>
+  <input type="submit" value="Pay" class="payCard__payForm--submit" />
+</form>
+</div>`;
 
 function getCity() {
   fetch("/api/get-city")

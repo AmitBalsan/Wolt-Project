@@ -78,6 +78,7 @@ function removeDish(itemID) {
 function closeModal() {
     popup.innerHTML = "";
     popup.style.position = "unset";
+    popup.style.alignItems = "unset";
 }
 function onPay() {
     fetch("/api/create-order")
@@ -167,4 +168,9 @@ function addUserAddress(event) {
     })["catch"](function (error) {
         console.log(error);
     });
+}
+function onCheckOut() {
+    popup.innerHTML = paymentModal;
+    popup.style.position = "fixed";
+    popup.style.alignItems = "center";
 }
