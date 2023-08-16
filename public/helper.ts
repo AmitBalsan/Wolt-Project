@@ -356,3 +356,32 @@ function renderCityData(cites: City[]) {
 }
 
 getCity();
+
+const selectCity = document.querySelector(
+  ".header__selectCity"
+) as HTMLSelectElement;
+const Search = document.querySelector(
+  ".header__searchContainer"
+) as HTMLInputElement;
+function getCityForSearch() {
+  Search.style.display = "none";
+  selectCity.style.display = "block";
+
+  fetch("/api/get-city")
+    .then((res) => res.json())
+    .then((data) => {
+      renderCities(data.cityDB);
+    });
+}
+
+//   let cityList = "";
+function renderCities(cites: City[]) {
+  console.log(cites);
+
+  const cityHTML = cites
+    .map((res) => ` <option value="${res._id}">${res.cityName}</option>`)
+    .join("");
+  console.log(cityHTML);
+
+  selectCity.innerHTML = cityHTML;
+}

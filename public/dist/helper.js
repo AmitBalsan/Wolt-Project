@@ -36,3 +36,23 @@ function renderCityData(cites) {
     console.log(cityList);
 }
 getCity();
+var selectCity = document.querySelector(".header__selectCity");
+var Search = document.querySelector(".header__searchContainer");
+function getCityForSearch() {
+    Search.style.display = "none";
+    selectCity.style.display = "block";
+    fetch("/api/get-city")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        renderCities(data.cityDB);
+    });
+}
+//   let cityList = "";
+function renderCities(cites) {
+    console.log(cites);
+    var cityHTML = cites
+        .map(function (res) { return " <option value=\"" + res._id + "\">" + res.cityName + "</option>"; })
+        .join("");
+    console.log(cityHTML);
+    selectCity.innerHTML = cityHTML;
+}

@@ -265,10 +265,10 @@
 .popup {
   width: 100%;
   display: flex;
-  justify-content: center;
   height: 100%;
   background: #8080807a;
   z-index: 5;
+  justify-content: center;
 }
 
 .create_restaurant {
@@ -842,6 +842,7 @@
 }
 
 .payCard {
+  background-color: #ffffff;
   width: 22rem;
   height: 28rem;
   border-radius: 30px;
@@ -937,7 +938,7 @@ button:hover {
   padding: 0 300px;
   box-shadow: 0px 2px 22px -4px rgba(0, 0, 0, 0.25);
 }
-.header img {
+.header #logoImg {
   height: 100%;
 }
 .header_btn {

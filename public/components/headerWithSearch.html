@@ -7,6 +7,33 @@
     <title>Header With Search</title>
 
     <link rel="stylesheet" href="./header.css" />
+    <script src="../dist/helper.js" defer></script>
+    <!-- <link rel="stylesheet" href="../dist/style.css" /> -->
   </head>
-  <body></body>
+  <body>
+    <div class="signUp-panel"></div>
+    <section class="header" style="padding: 0">
+      <img src="../assets/images/DAI-logo.png" alt="DAI Logo" id="logoImg" />
+      <div class="header__searchContainer">
+        <img
+          src="../assets/images/search-icon-jpg-18 1.png"
+          class="header__searchContainer--searchIcon"
+          alt="Search Icon"
+        />
+        <input
+          type="text"
+          class="header__searchContainer--searchInput"
+          placeholder="Search"
+          onclick="getCityForSearch()"
+        />
+      </div>
+      <select class="header__selectCity" style="display: none"></select>
+      <div class="header_btn">
+        <button class="header_btn--signup" onclick="openSignUp()">
+          SIGN-UP
+        </button>
+        <button class="header_btn--login" onclick="openLogin()">LOGIN</button>
+      </div>
+    </section>
+  </body>
 </html>

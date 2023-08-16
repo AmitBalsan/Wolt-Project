@@ -1,1 +1,24 @@
 @import "../style.scss";
+
+.header__searchContainer {
+  position: relative;
+  display: inline-block;
+
+  &--searchIcon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px; /* Adjust the size of the icon */
+    height: 22px;
+  }
+
+  &--searchInput {
+    padding: 10px;
+    padding-left: 30px; /* To create space for the icon */
+    border: 1px solid #ccc;
+    width: 17rem;
+    height: 1.8rem;
+    border-radius: 16px;
+  }
+}

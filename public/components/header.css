@@ -938,7 +938,7 @@ button:hover {
   padding: 0 300px;
   box-shadow: 0px 2px 22px -4px rgba(0, 0, 0, 0.25);
 }
-.header img {
+.header #logoImg {
   height: 100%;
 }
 .header_btn {
@@ -1162,4 +1162,25 @@ button:hover {
   height: 55px;
   border-radius: 30px;
   background: #8774ff;
+}
+
+.header__searchContainer {
+  position: relative;
+  display: inline-block;
+}
+.header__searchContainer--searchIcon {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px; /* Adjust the size of the icon */
+  height: 22px;
+}
+.header__searchContainer--searchInput {
+  padding: 10px;
+  padding-left: 30px; /* To create space for the icon */
+  border: 1px solid #ccc;
+  width: 17rem;
+  height: 1.8rem;
+  border-radius: 16px;
 }/*# sourceMappingURL=header.css.map */
