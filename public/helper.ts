@@ -355,4 +355,22 @@ function renderCityData(cites: City[]) {
   console.log(cityList);
 }
 
+const thanksModal = `<div class="thanks_container">
+<div onclick="closeModal()" class="thanks_container--exit">
+  <p class="thanks_container--exit-right"></p>
+  <p class="thanks_container--exit-left"></p>
+</div>
+<div class="thanks_container_img">
+  <img src="../../public/assets/images/DAI-logo.png" alt="DAI Logo" />
+</div>
+<div class="thanks_container_content">
+  <h3>Thank you for signing up!</h3>
+  <p>to continue please Login...</p>
+</div>
+
+<div class="thanks_container_btn">
+  <button>LOGIN</button>
+</div>
+</div>`;
+
 getCity();
