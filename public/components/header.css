@@ -941,6 +941,9 @@ button:hover {
 .header #logoImg {
   height: 100%;
 }
+.header img {
+  height: 100%;
+}
 .header_btn {
   position: relative;
   width: 250px;
