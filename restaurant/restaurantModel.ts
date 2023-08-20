@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { CitySchema } from "../city/cityModel";
 
 const RestaurantSchema = new Schema({
   name: String,
@@ -6,7 +7,7 @@ const RestaurantSchema = new Schema({
   phone: String,
   bmNumber: String,
   userID: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  cityID: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
+  cityID: CitySchema,
   street: String,
   notes: String,
   minTime: Number,

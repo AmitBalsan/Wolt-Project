@@ -64,7 +64,7 @@ exports.createRestaurant = function (req, res) { return __awaiter(void 0, void 0
                 user = req.cookies["user"];
                 decoded = jwt_simple_1["default"].decode(user, secret);
                 userId = decoded.userId;
-                return [4 /*yield*/, cityModel_1["default"].findById("64d15f9720ce9c80c243e2ea")];
+                return [4 /*yield*/, cityModel_1["default"].findById(city)];
             case 1:
                 cityModel = _b.sent();
                 return [4 /*yield*/, restaurantModel_1["default"].create({
@@ -169,7 +169,8 @@ exports.restaurant = function (req, res) { return __awaiter(void 0, void 0, void
                     name: restaurant_1.name,
                     image: restaurant_1.image,
                     phone: restaurant_1.phone,
-                    street: restaurant_1.street
+                    street: restaurant_1.street,
+                    city: restaurant_1.cityID.cityName
                 };
                 res.status(200).send({ resDetails: resDetails, resID: resID });
                 return [3 /*break*/, 3];

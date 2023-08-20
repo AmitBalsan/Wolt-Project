@@ -37,7 +37,7 @@ function showRestaurant(data, resID) {
         <div class="restaurant_details_container_detail">
           <h3>${data.name}</h3>
           <p>Phone: ${data.phone}</p>
-          <p>City: ${data.street}</p>
+          <p>Address: ${data.city} ${data.street}</p>
         </div>
         <div class="restaurant_details_container_dish">
         <div class="dish-list"></div>

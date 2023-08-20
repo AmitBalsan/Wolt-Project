@@ -28,7 +28,7 @@ export const createRestaurant = async (req: any, res: any) => {
     const user = req.cookies["user"];
     const decoded = jwt.decode(user, secret);
     const { userId } = decoded;
-    const cityModel = await CityModal.findById("64d15f9720ce9c80c243e2ea");
+    const cityModel = await CityModal.findById(city);
     const restaurantDB = await RestaurantModal.create({
       name,
       image,
@@ -99,6 +99,7 @@ export const restaurant = async (req: any, res: any) => {
       image: restaurant.image,
       phone: restaurant.phone,
       street: restaurant.street,
+      city: restaurant.cityID!.cityName,
     };
 
     res.status(200).send({ resDetails, resID });

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.orderCreate = void 0;
+exports.getOrder = exports.orderCreate = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var orderModel_1 = require("./orderModel");
 var cartModel_1 = require("../cart/cartModel");
@@ -90,6 +90,32 @@ exports.orderCreate = function (req, res) { return __awaiter(void 0, void 0, voi
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getOrder = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var user, decoded, userId, orderLists, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                user = req.cookies["user"];
+                decoded = jwt_simple_1["default"].decode(user, secret);
+                userId = decoded.userId;
+                if (!userId)
+                    throw new Error("There is no user ID");
+                return [4 /*yield*/, orderModel_1["default"].find({ userID: userId })];
+            case 1:
+                orderLists = _a.sent();
+                if (!orderLists)
+                    throw new Error("There is no Orders");
+                res.status(200).send({ orderLists: orderLists });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

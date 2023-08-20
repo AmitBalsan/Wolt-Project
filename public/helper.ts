@@ -10,6 +10,52 @@ const popup = document.querySelector(".popup") as HTMLDivElement;
 const headerAvatar = document.querySelector(".header_btn") as HTMLDivElement;
 
 const restaurantSelect = JSON.parse(localStorage.getItem("restaurant")!);
+let citySelection = "";
+
+function getCity() {
+  fetch("/api/get-city")
+    .then((res) => res.json())
+    .then((data) => {
+      renderCityData(data.cityDB);
+    });
+}
+let cityList = "";
+function renderCityData(cites: City[]) {
+  console.log(cites);
+
+  const cityHTML = cites
+    .map((res) => ` <option value="${res._id}">${res.cityName}</option>`)
+    .join("");
+  citySelection = cityHTML;
+  console.log(citySelection);
+
+  cityList = `<div class="address">
+  <div class="address-container">
+    <div onclick="closeModal()" class="address-container--exit">
+      <p class="address-container--exit-right"></p>
+      <p class="address-container--exit-left"></p>
+    </div>
+    <div class="address-container--header"><h2>Address</h2></div>
+    <div class="address-container--form">
+      <form onsubmit="addUserAddress(event)">
+        <label for="city">City</label>
+        <select name="city" class="address-container--form-select">
+        ${cityHTML}
+        </select>
+        <label for="street">Street</label>
+        <input type="text" name="street" required />
+        <label for="home">Home</label>
+        <input type="number" name="home" required />
+        <label for="entrance">Entrance</label>
+        <input type="text" name="entrance" required />
+        <div class="address-container-btn">
+          <button type="submit">Add Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>`;
+}
 
 const signUpForm = `<div class="signup">
 <div class="signup-container">
@@ -111,51 +157,55 @@ const newRestaurantBtn = `<selection class="new_restaurant">
 </div>
 </selection>`;
 
-const newRestaurantForm = `    <selection class="create_restaurant">
-<div class="create_restaurant-container">
-  <div class="create_restaurant-container-headline">
-    <h3>New Restaurant</h3>
+function showRestaurantForm(): string {
+  return `<selection class="create_restaurant">
+  <div class="create_restaurant-container">
+    <div class="create_restaurant-container-headline">
+      <h3>New Restaurant</h3>
+    </div>
+    <div class="create_restaurant-container-info">
+      <form onsubmit="createRestaurant(event)">
+        <div class="create_restaurant-container-info--details">
+          <div class="create_restaurant-container-info--details-input">
+            <label>Name</label>
+            <input type="text" name="name"  required/>
+            <label>Cover Image</label>
+            <input type="text" name="image"  required/>
+          </div>
+          <div class="create_restaurant-container-info--details-input">
+            <label>Phone Number</label>
+            <input type="text" name="phone" required />
+            <label>BN Number</label>
+            <input type="text" name="bn"  required/>
+          </div>
+          <div class="create_restaurant-container-info--details-input">
+            <label>City</label>
+            <select name="city" class="address-container--form-select">
+            ${citySelection}
+            </select>
+            <label>Street</label>
+            <input type="street" name="street"  required/>
+          </div>
+        </div>
+        <div class="create_restaurant-container-info--details-note">
+          <label for="">notes</label>
+          <textarea name="notes" required></textarea>
+          <div class="create_restaurant-container-info--details-time">
+            <label>Min Time</label>
+            <input name="minTime" type="number"  required/>
+            <label>Max Time</label>
+            <input name="maxTime" type="number"  required/>
+          </div>
+        </div>
+        <div class="create_restaurant-container-btn">
+          <button id="cancel" onclick="closeModal()">Cancel</button>
+          <button type="submit" id="Next">Next</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="create_restaurant-container-info">
-    <form onsubmit="createRestaurant(event)">
-      <div class="create_restaurant-container-info--details">
-        <div class="create_restaurant-container-info--details-input">
-          <label>Name</label>
-          <input type="text" name="name"  required/>
-          <label>Cover Image</label>
-          <input type="text" name="image"  required/>
-        </div>
-        <div class="create_restaurant-container-info--details-input">
-          <label>Phone Number</label>
-          <input type="text" name="phone" required />
-          <label>BN Number</label>
-          <input type="text" name="bn"  required/>
-        </div>
-        <div class="create_restaurant-container-info--details-input">
-          <label>City</label>
-          <input type="text" name="city"  required/>
-          <label>Street</label>
-          <input type="street" name="street"  required/>
-        </div>
-      </div>
-      <div class="create_restaurant-container-info--details-note">
-        <label for="">notes</label>
-        <textarea name="notes" required></textarea>
-        <div class="create_restaurant-container-info--details-time">
-          <label>Min Time</label>
-          <input name="minTime" type="number"  required/>
-          <label>Max Time</label>
-          <input name="maxTime" type="number"  required/>
-        </div>
-      </div>
-      <div class="create_restaurant-container-btn">
-        <button id="cancel" onclick="closeModal()">Cancel</button>
-        <button type="submit" id="Next">Next</button>
-      </div>
-    </form>
-  </div>
-</div>
-</selection>`;
+  </selection>`;
+}
 
 const restaurantManageCard = `<selection class="restaurant_modal">
 <div class="restaurant_modal_container">
@@ -310,50 +360,6 @@ const paymentModal = ` <div class="payCard">
   <input type="submit" value="Pay" class="payCard__payForm--submit" />
 </form>
 </div>`;
-
-function getCity() {
-  fetch("/api/get-city")
-    .then((res) => res.json())
-    .then((data) => {
-      renderCityData(data.cityDB);
-    });
-}
-
-let cityList = "";
-function renderCityData(cites: City[]) {
-  console.log(cites);
-
-  const cityHTML = cites
-    .map((res) => ` <option value="${res._id}">${res.cityName}</option>`)
-    .join("");
-  cityList = `<div class="address">
-  <div class="address-container">
-    <div onclick="closeModal()" class="address-container--exit">
-      <p class="address-container--exit-right"></p>
-      <p class="address-container--exit-left"></p>
-    </div>
-    <div class="address-container--header"><h2>Address</h2></div>
-    <div class="address-container--form">
-      <form onsubmit="addUserAddress(event)">
-        <label for="city">City</label>
-        <select name="city" class="address-container--form-select">
-        ${cityHTML}
-        </select>
-        <label for="street">Street</label>
-        <input type="text" name="street" required />
-        <label for="home">Home</label>
-        <input type="number" name="home" required />
-        <label for="entrance">Entrance</label>
-        <input type="text" name="entrance" required />
-        <div class="address-container-btn">
-          <button type="submit">Add Address</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>`;
-  console.log(cityList);
-}
 
 const thanksModal = `<div class="thanks_container">
 <div onclick="closeModal()" class="thanks_container--exit">

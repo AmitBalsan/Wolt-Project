@@ -1,6 +1,6 @@
 addRestaurant.innerHTML = newRestaurantBtn;
 function handleCreate() {
-    popup.innerHTML = newRestaurantForm;
+    popup.innerHTML = showRestaurantForm();
     popup.style.position = "fixed";
 }
 function closeModal() {
@@ -18,6 +18,7 @@ function getRestaurant() {
 }
 function createRestaurant(event) {
     event.preventDefault();
+    console.log(event.target.elements.city.value);
     console.log(event.target.elements.image.value === "");
     var image = "";
     if (event.target.elements.image.value === "") {
@@ -60,7 +61,7 @@ function renderRestaurant(restaurant) {
     console.log(restaurant);
     var restaurantLists = restaurant.restaurantList
         .map(function (res) {
-        return "<selection class=\"restaurant_modal\">\n  <div  class=\"restaurant_modal_container\">\n    <div onclick=\"editRestaurant('" + res._id + "')\" class=\"restaurant_modal_container-image\">\n      <img\n        src=" + res.image + "\n        alt=\"\"\n      />\n    </div>\n    <div class=\"restaurant_modal_container-content\">\n      <div class=\"restaurant_modal_container-content-res\">\n        <h3>" + res.name + "</h3>\n        <p>Phone: " + res.phone + "</p>\n        <p>City: " + res.city + "</p>\n      </div>\n      <div onclick=\"deleteRestaurant('" + res._id + "')\" class=\"restaurant_modal_container-content-delete\">\n        <img src=\"../assets/images/f9c676dd662d9a7fbb11602b8837f7b7.png\"\n          alt=\"\"\n        />\n      </div>\n    </div>\n  </div>\n</selection>";
+        return "<selection class=\"restaurant_modal\">\n  <div  class=\"restaurant_modal_container\">\n    <div onclick=\"editRestaurant('" + res._id + "')\" class=\"restaurant_modal_container-image\">\n      <img\n        src=" + res.image + "\n        alt=\"\"\n      />\n    </div>\n    <div class=\"restaurant_modal_container-content\">\n      <div class=\"restaurant_modal_container-content-res\">\n        <h3>" + res.name + "</h3>\n        <p>Phone: " + res.phone + "</p>\n        <p>City: " + res.cityID.cityName + "</p>\n      </div>\n      <div onclick=\"deleteRestaurant('" + res._id + "')\" class=\"restaurant_modal_container-content-delete\">\n        <img src=\"../assets/images/f9c676dd662d9a7fbb11602b8837f7b7.png\"\n          alt=\"\"\n        />\n      </div>\n    </div>\n  </div>\n</selection>";
     })
         .join("");
     restaurantList.innerHTML = restaurantLists;

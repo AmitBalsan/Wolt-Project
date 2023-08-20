@@ -1,13 +1,22 @@
+@import "../style.scss";
+
 .orders {
-  width: 40rem;
+  width: 85%;
   height: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left: 5rem;
+  margin: 20px auto;
+  p {
+    color: #717171;
+  }
   &__topCard {
-    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     height: 7rem;
     border-radius: 10px;
     box-shadow: 0px 4px 9px 4px #00000040;
@@ -17,21 +26,46 @@
     &--details {
       display: flex;
       justify-content: space-between;
-    }
-    &--details-Col1,
-    &--details-Col2 {
-      display: flex;
-      flex-direction: column;
-    }
-    &--arrow {
-      display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100%;
+      &-total,
+      &-status {
+        display: flex;
+        justify-content: space-around;
+      }
+      &-col1 {
+        &-restaurant,
+        &-client,
+        &-orderid {
+          display: flex;
+        }
+      }
+      &-col1,
+      &-col2 {
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      &-col2 {
+        &-entrance,
+        &-home {
+          display: flex;
+          justify-content: space-between;
+        }
+        &-address {
+          display: flex;
+          justify-content: space-between;
+          &-details {
+            display: flex;
+            width: 250px;
+            justify-content: space-between;
+          }
+        }
+      }
     }
   }
   &__bottomCard {
-    width: 30rem;
+    width: 80%;
     height: 14rem;
     box-shadow: 0px 14px 9px 5px #00000040;
     // margin-top: 4rem;

@@ -42,3 +42,18 @@ export const orderCreate = async (req: any, res: any) => {
     res.status(500).send({ error: error.message });
   }
 };
+
+export const getOrder = async (req: any, res: any) => {
+  try {
+    const user = req.cookies["user"];
+    const decoded = jwt.decode(user, secret);
+    const { userId } = decoded;
+    if (!userId) throw new Error("There is no user ID");
+    const orderLists = await OrderModal.find({ userID: userId });
+    if (!orderLists) throw new Error("There is no Orders");
+
+    res.status(200).send({ orderLists });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
+};

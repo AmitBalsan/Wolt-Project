@@ -1,7 +1,7 @@
 addRestaurant.innerHTML = newRestaurantBtn;
 
 function handleCreate() {
-  popup.innerHTML = newRestaurantForm;
+  popup.innerHTML = showRestaurantForm();
   popup.style.position = "fixed";
 }
 
@@ -23,6 +23,8 @@ function getRestaurant() {
 
 function createRestaurant(event) {
   event.preventDefault();
+  console.log(event.target.elements.city.value);
+
   console.log(event.target.elements.image.value === "");
   let image = "";
   if (event.target.elements.image.value === "") {
@@ -81,7 +83,7 @@ function renderRestaurant(restaurant: []) {
       <div class="restaurant_modal_container-content-res">
         <h3>${res.name}</h3>
         <p>Phone: ${res.phone}</p>
-        <p>City: ${res.city}</p>
+        <p>City: ${res.cityID.cityName}</p>
       </div>
       <div onclick="deleteRestaurant('${res._id}')" class="restaurant_modal_container-content-delete">
         <img src="../assets/images/f9c676dd662d9a7fbb11602b8837f7b7.png"

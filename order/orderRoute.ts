@@ -1,7 +1,7 @@
 import express from "express";
-import { orderCreate } from "./orderControls";
+import { getOrder, orderCreate } from "./orderControls";
 const router = express.Router();
 
-router.get("/create-order", orderCreate);
+router.get("/create-order", orderCreate).get("/get-order-lists", getOrder);
 
 export default router;
