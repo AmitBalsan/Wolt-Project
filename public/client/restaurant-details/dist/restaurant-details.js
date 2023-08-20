@@ -24,7 +24,7 @@ function getRestaurantDetails() {
 }
 getRestaurantDetails();
 function showRestaurant(data, resID) {
-    resHtml.innerHTML = " <selection class=\"restaurant_details\">\n      <div class=\"restaurant_details_container\">\n        <div class=\"restaurant_details_container_back\">\n          <button onclick=\"goBack()\"><-- Back</button>\n        </div>\n        <div class=\"restaurant_details_container_cover\"></div>\n        <div class=\"restaurant_details_container_detail\">\n          <h3>" + data.name + "</h3>\n          <p>Phone: " + data.phone + "</p>\n          <p>City: " + data.street + "</p>\n        </div>\n        <div class=\"restaurant_details_container_dish\">\n        <div class=\"dish-list\"></div>\n        </div>\n      </div>\n    </selection>";
+    resHtml.innerHTML = " <selection class=\"restaurant_details\">\n      <div class=\"restaurant_details_container\">\n        <div class=\"restaurant_details_container_back\">\n          <button onclick=\"goBack()\"><-- Back</button>\n        </div>\n        <div class=\"restaurant_details_container_cover\"></div>\n        <div class=\"restaurant_details_container_detail\">\n          <h3>" + data.name + "</h3>\n          <p>Phone: " + data.phone + "</p>\n          <p>City: " + data.city + " " + data.street + "</p>\n        </div>\n        <div class=\"restaurant_details_container_dish\">\n        <div class=\"dish-list\"></div>\n        </div>\n      </div>\n    </selection>";
     var image = document.querySelector(".restaurant_details_container_cover");
     image.style.backgroundImage = "url(" + data.image + ")";
     getDish();

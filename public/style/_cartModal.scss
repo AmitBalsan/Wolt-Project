@@ -5,6 +5,7 @@
   background: #8080807a;
   display: flex;
   justify-content: center;
+  z-index: 5;
   &-container {
     position: relative;
     display: flex;
@@ -34,6 +35,15 @@
         padding: 5px;
         justify-content: space-around;
         border-bottom: 1px solid;
+        p {
+          text-align: center;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 260px;
+          height: 1.2em;
+          white-space: nowrap;
+        }
+
         &-remove {
           color: red;
           cursor: pointer;

@@ -22,18 +22,24 @@
 }
 .restaurant_card_container--content {
   display: flex;
-  justify-content: space-around;
   max-height: 150px;
 }
 .restaurant_card_container--content-description {
-  max-width: 300px;
+  min-width: 300px;
   padding: 10px 15px;
   overflow: overlay;
-  margin-left: -30px;
 }
 .restaurant_card_container--content-description p {
   font-size: 0.75rem;
   color: #7e7e7e;
+  max-width: 270px;
+}
+.restaurant_card_container--content-description h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 260px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 .restaurant_card_container--content-time {
   display: flex;

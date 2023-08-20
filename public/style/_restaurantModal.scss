@@ -32,6 +32,11 @@
       padding: 0 40px;
       h3 {
         font-size: 1.5rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 160px;
+        height: 1.2em;
+        white-space: nowrap;
       }
       p {
         color: rgb(148, 148, 148);

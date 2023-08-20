@@ -5,6 +5,7 @@
   background: #8080807a;
   display: flex;
   justify-content: center;
+  z-index: 5;
 }
 .cart-container {
   position: relative;
@@ -37,6 +38,14 @@
   padding: 5px;
   justify-content: space-around;
   border-bottom: 1px solid;
+}
+.cart-container--content-items p {
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 260px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 .cart-container--content-items-remove {
   color: red;
