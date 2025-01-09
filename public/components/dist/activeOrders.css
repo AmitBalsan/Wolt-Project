@@ -203,18 +203,24 @@
 }
 .restaurant_card_container--content {
   display: flex;
-  justify-content: space-around;
   max-height: 150px;
 }
 .restaurant_card_container--content-description {
-  max-width: 300px;
+  min-width: 300px;
   padding: 10px 15px;
   overflow: overlay;
-  margin-left: -30px;
 }
 .restaurant_card_container--content-description p {
   font-size: 0.75rem;
   color: #7e7e7e;
+  max-width: 270px;
+}
+.restaurant_card_container--content-description h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 260px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 .restaurant_card_container--content-time {
   display: flex;
@@ -396,6 +402,11 @@
 }
 .restaurant_modal_container-content h3 {
   font-size: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 .restaurant_modal_container-content p {
   color: #949494;
@@ -638,6 +649,7 @@
   background: #8080807a;
   display: flex;
   justify-content: center;
+  z-index: 5;
 }
 .cart-container {
   position: relative;
@@ -670,6 +682,14 @@
   padding: 5px;
   justify-content: space-around;
   border-bottom: 1px solid;
+}
+.cart-container--content-items p {
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 260px;
+  height: 1.2em;
+  white-space: nowrap;
 }
 .cart-container--content-items-remove {
   color: red;
@@ -1222,4 +1242,9 @@ button:hover {
   height: 14rem;
   box-shadow: 0px 14px 9px 5px #00000040;
   border-radius: 5px;
+}
+.orders__bottomCard--titles {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 5rem;
 }

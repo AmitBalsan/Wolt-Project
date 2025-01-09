@@ -61,3 +61,12 @@ function renderCities(cites) {
     console.log(cityHTML);
     selectCity.innerHTML = cityHTML;
 }
+var orderList = document.querySelector(".orders__bottomCard");
+function openOrderList() {
+    fetch("/api/get-order-lists")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        // orderList(data);
+        console.log(data);
+    });
+}

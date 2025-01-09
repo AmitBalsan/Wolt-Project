@@ -409,3 +409,16 @@ function renderCities(cites: City[]) {
 
   selectCity.innerHTML = cityHTML;
 }
+
+const orderList = document.querySelector(
+  ".orders__bottomCard"
+) as HTMLDivElement;
+
+function openOrderList() {
+  fetch("/api/get-order-lists")
+    .then((res) => res.json())
+    .then((data) => {
+      // orderList(data);
+      console.log(data);
+    });
+}

@@ -23,3 +23,5 @@ interface City {
   cityName: string;
   cityID: number;
 }
+
+interface Order {}
